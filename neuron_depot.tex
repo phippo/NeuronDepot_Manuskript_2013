@@ -24,6 +24,12 @@
 % PR: new commands
 \newcommand{\pr}[1]{[\textcolor{YellowOrange}{PR: #1}]}
 
+% PR: remarks:
+% Image size for figures: 180 mm width with 900 - 1200 dpi.
+% 180 mm and 1200 dpi ==> 8504 pixel
+% 85 mm and 1200 dpi ==> 4016
+
+
 % Leave a blank line between paragraphs in stead of using \\
 
 \copyrightyear{}
@@ -122,7 +128,7 @@ simulations.
 %%%%%%%%%%%%%%
 % Introduction
 %%%%%%%%%%%%%%
-
+%\twocolumn
 \section{Introduction}
 Science today deals with a “data deluge” derived from the widespread use of
 high-throughput sensors in experiments and the ever more complex simulations
@@ -245,6 +251,37 @@ requires quick synchronization and reliable transfer of large quantities of raw
 data with complex associated metadata, including both recorded data and
 simulation results.
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Figures/workflow}
+\caption[Processing stages and data transitions]{
+    \emph{Processing stages and data transitions of a typical workflow like the GinJang honeybee project}
+
+    \textbf{I. Processing stages} (A) Single cell recording at a
+    electrophysiological setup. Here, the electrical cell activity is measured
+    at the dendrite, as well as a dye is injected into the cell. (B) Using the
+    brain from experiments, image stacks are created applying confocal
+    microscope technology. (C) The application SIGEN computes from confocal
+    image stacks segmentations representing the underlying neuron. (D)
+    Electrophysiological recordings are analyzed with specialized software.
+    This stage represents an entire electrophysiological infrastructure using
+    local computers at the experimental lab but also remote G-Node-services.
+    For simplicity, this illustration exemplary shows the result of a spike
+    detection algorithm identifies spikes of three neuronal units. (E) Further
+    process stages follow building upon already processed data.
+
+    \textbf{II. Traditional data transition} (A $\rightarrow$ B) The honeybee
+    brain is physically moved from electrophysiological setup to the confocal
+    microscope setup. (B $\rightarrow$ C; C $\rightarrow$ E) data units (single
+    file, or set of files that represents a logical unit like all files of an
+    image stack) are transferred by common tools, like USB-sticks, external
+    hard drives, Dropbox, or simply as emails attachment. The same tools are
+    applied for (A $\rightarrow$ D; D $\rightarrow$ E) but moreover dedicated
+    web techniques for the domain of electrophysiological provided by G-Node
+    are applied.
+}
+\label{fig:workflow} 
+\end{figure}
 The GinJang project uses the honeybee brain as a model for establishing the
 NeuronDepot. Honeybee communicates the direction and distance to food sources
 with hive-mates by waggle dance \pr{REF}(von Frisch, 1967). The hive-mates detect and
@@ -376,6 +413,28 @@ following generalized requirements:
 \end{enumerate}
 
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Figures/Metadata_DataUnits}
+\caption[Metadata and Data Units]{
+    \emph{Data units as smallest logical entity for specific data processing attached
+    to the metadata of the project}
+
+    (Left) A data unit is connected to metadata by its unique hash value id.
+    Metadata is illustrated here as a graph where each points represents an
+    attribute like \texttt{AGE=15}, \texttt{DATE=130525}, or
+    \texttt{HONEYBEE=HB123}. The data unit could express an image stack, or a
+    compartmental reconstruction of a specific neuron. (Middle) Data processing by
+    a script or an applications that operates on specific input data units and that
+    generates a new output data unit. For example, SIGEN generates from input data
+    units expressing image stacks neural segmentations as an output data unit
+    containing an SWC-file. (Right) Processing a data unit with a specific script
+    or application leads to an output data unit associated with new metadata that
+    is integrated into the existing metadata graph. According to our SIGEN-example,
+    parameters of the segmentation algorithm are stored within the metadata graph.
+}
+\label{fig:metadata_dataunits} 
+\end{figure}
 %%%%%%%%%
 % Concept
 %%%%%%%%%
@@ -414,6 +473,40 @@ the specific attributes that uniquely identify it. This context path can be
 used to construct a path in the file system where the order of metadata
 attributes corresponds to the hierarchical levels in the file system. 
 
+\begin{figure}
+\centering
+\includegraphics[width=85mm]{Figures/ContextTree}
+\caption[Mapping data units to context trees]{
+    \emph{Mapping a data unit to Context Trees using attached metadata}
+    \pr{This figure will appear in one column within the final layout}
+
+    (Left) Each data unit is connected to metadata. Using this metadata allows
+    the organization of data units by two aspects: The entire data of a project
+    can be (1) sub-divided into divers subsets of data where (2) data units are
+    arranged within a tree structure where the nodes represent metadata and the
+    leafs represent the data unit. As a meaningful specification of such a
+    arrangement depends on the context of data usage, we call this arrangement
+    \emph{Context Tree}.
+    (Right) One Context Tree of NeuronDepot arranges project
+    data for our morphometric processing stage. The file format \texttt{SWC} serves as
+    a filter argument as just SWC-files are needed for simulation. Metadata
+    attributes \texttt{LABOR\_STATE}, \texttt{REGION}, \texttt{HONEYBEE\_ID}, and
+    \texttt{SIGEN\_PARAMETERS}
+    serve for grouping.
+    
+    Example of Context Path ($\alpha$) pointing to a data unit containing a
+    segmentation:
+    \texttt{/forager/left\_DL/HB130427/D20V05C01S01/morphology.swc} Another
+    Context Tree of NeuronDepot arranges project data for our imaging
+    processing stage.  Here, the project data is reduced to image stacks.
+    Metadata attributes \texttt{HONEYBEE\_ID} and \texttt{REGION} serve for
+    grouping.
+
+    Example of Context Path ($\beta$) pointing to the same data unit: \texttt{/HB130427/left-DL/*.tiff}
+}
+\label{fig:context_tree} 
+\end{figure}
+
 \emph{Example}: If a member of the project wants to analyze one particular
 segmentation-data unit of neuron LY-1 of honeybee HB456, the following two
 paths would represent these attributes:
@@ -441,7 +534,9 @@ is interested in, along with a hierarchical arrangement that suits her needs
 (what we call a projection) NeuronDepot creates a user- and task-specific
 context tree as a hierarchy of symbolic links with the data units sitting at
 the leaves. By exposing these hierarchies to a synchronization daemon, the
-projection is made available to every workstation that subscribes to it. 
+projection is made available to every workstation that subscribes to it.
+
+
 
 NeuronDepot also leverages the advances in synchronization technology for the
 data upload process: the user simply places new data units in a designated
@@ -472,6 +567,39 @@ in a floating state ). Floating folders are part of the data-assignment process
 (Fig. 5-2) . The second type of folder is the context tree folder with
 read-only permissions for project members that synchronize projected context
 trees to the local work environment.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Figures/cloud_concept}
+\caption[Schematic depicting NeuronDepot]{
+    \emph{Schematic depicting NeuronDepot's data flow}
+
+    NeuronDepot is based on cloud storage services and user-friendly web-app
+    services that use modern database management systems . Cloud storage
+    services are used to keep all local computers that are involved in the
+    project synchronized with the server and, therefore, synchronized among
+    each other.  This core synchronization is based on the file system. In
+    order to integrate files into our workflows, our system provides two types
+    of base folders: upload folders (gray, here just one) with read/write
+    permissions for project members and multiple data folders (purple, green,
+    red) with read-only permissions for project members.
+
+    The new data transition workflow consists of three steps: (1) new data
+    units are stored at the floating folder and synchronized to the server in
+    the background. (2) Synchronized data units are assigned to the existing
+    project data via a web application (as NeuronDepot's web-application uses
+    responsive features, it can be used from divers devices like smart phones,
+    tablet PCs, or traditional desktop computers). The system assures that all
+    data is correctly related to each other and that all data stays consistent.
+    Project members can plug scripts into this assignment process to automate
+    and facilitate data processing. Moreover, the system provides divers
+    reports to brief the scientists about the current state, or about recent
+    changes. (3) NeuronDepot distributes data units back to project members.
+    According to the underlying context tree, NeuronDepot projects the folders
+    synchronized by cloud storage services.
+}
+\label{fig:cloud_concept} 
+\end{figure}
 
 The underlying data transfer workflow replaces traditional transfer methods as
 described above by these folders which are organized by consists of three
@@ -526,6 +654,21 @@ hard drives – requires controlled data synchronization
 \section{System Architecture}
 
 The architecture underlying NeuronDepot consists of individual layers (Fig. 6). Users can access NeuronDepot via a web application or through cloud storage synchronization clients.
+
+\begin{figure}
+\centering
+\includegraphics[width=85mm]{Figures/architecture}
+\caption[System Architecture]{
+    \emph{System architecture}
+    \pr{This figure will appear in one column within the final layout}
+    
+    The architecture underlying NeuronDepot consists of individual layers (A)
+    Graphical user interface layer ... (B) Business logic layer ... (C) Persistence
+    layer ... (D) File projection layer. Arrows indicate encapsulation, WebApp
+    "sees" Logic, but Logic does not see WebApp
+}
+\label{fig:architecture} 
+\end{figure}
 
 
 \subsection{Virtual Filesystem Projection Layer}
@@ -751,108 +894,6 @@ to leverage the advantages of cloud services. NeuronDepot has already been
 successfully deployed on a large-scale collaboration, the GinJang project.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\begin{itemize}
-%for bulleted list, use itemize
-\item Introduction: Succinct, with no subheadings.
-\item Materials and Methods: This section may be divided by subheadings. This section should contain sufficient detail so that when read in conjunction with cited references, all procedures can be repeated.
-\item Results: This section may be divided by subheadings. Footnotes should not be used and have to be transferred into the main text.
-\item Discussion: This section may be divided by subheadings. Discussions should cover the key findings of the study: discuss any prior art related to the subject so to place the novelty of the discovery in the appropriate context; discuss the potential short-comings and limitations on their interpretations; discuss their integration into the current understanding of the problem and how this advances the current views; speculate on the future direction of the research and freely postulate theories that could be tested in the future.
-\end{itemize}
-
-Please note that the Material and Methods section can be placed in any of the following ways: before Results, before Discussion or after Discussion.
-
-\subsection{Clinical Case Studies}
-
-For Clinical Case Studies the following sections are mandatory:
-
-\begin{itemize}
-%for bulleted list, use itemize
-\item Introduction: Include symptoms at presentation, physical exams and lab results.
-\item Background: This section may be divided by subheadings. Include history and review of similar cases.
-\item Results: This section may be divided by subheadings. Include diagnosis and treatment.
-\item Concluding Remarks
-\end{itemize}
-
-%\end{methods}
-
-
-
-\section{Results}
-
-Frontiers requires figures to be submitted individually, in the same order as they are referred to in the manuscript. Figures will then be automatically embedded at the bottom of the submitted manuscript. Kindly ensure that each table and figure is mentioned in the text and in numerical order. Permission must be obtained for use of copyrighted material from other sources (including the web). Please note that it is compulsory to follow figure instructions. Figures which are not according to the guidelines will cause substantial delay during the production process.
-
-\begin{table}[!t]
-\processtable{Resolution Requirements for the figures\label{Tab:02}}
-{\begin{tabular}{lllll}\toprule
-Image Type & Description & Format & Color Mode & Resolution\\\midrule
-Line Art & An image composed of lines and text,  & TIFF, JPEG & RGB, Bitmap & 900 - 1200 dpi\\
-           & which does not contain tonal or shaded areas.& & &\\
-           Halftone & A continuous tone photograph, which contains no text. & TIFF, EPS, JPEG & RGB, Grayscale & 300 dpi\\
-Combination & Image contains halftone + text or line art elements. & TIFF, JPEG & RGB,Grayscale & 600 - 900 dpi\\\botrule
-\end{tabular}}{This is a footnote}
-\end{table}
-
-\begin{equation}
-\sum x+ y =Z\label{eq:01}
-\end{equation}
-
-\textbf{Table\ref{Tab:02}} shows the resolution requirements for the figures. The figures must be legible:
-\begin{enumerate}
-\item The smallest visible text is no less than 8 points in height, when viewed at actual size.
-\item Solid lines are not broken up.
-\item Image areas are not pixelated or stair stepped.
-\item Text is legible and of high quality.
-\item Any lines in the graphic are no smaller than 2 points width.
-\item The actual size of the figure must be of at least 8.5 cm.
-\end{enumerate}
-
-\section{Discussion}
-
-Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text Text.
-Additional Requirements:
-\subsection{Corrections}
-
-Minor corrections to published articles can be communicated to the Frontiers Production Office at production.office@frontiersin.org. If you need to communicate important changes to an article please submit a General Commentary. Submit the article with the title “Erratum: Original Title of Article”.
-
-\subsection{Commentaries on Articles}
-
-At the beginning of your manuscript provide the citation of the article commented on.
-
-\subsection{Focused Reviews}
-
-For Tier 2 invited Focused Reviews the sections Introduction, Material and Methods, Results, and Discussion are recommended. In addition the authors must submit a short biography of the corresponding author(s). This short biography has a maximum of 600 characters, including spaces.
-
-A picture (5 x 5 cm, in *.tif or *.jpg, min 300 dpi) must be submitted along with the biography in the manuscript and separately during figure upload.
-Focused Reviews highlight and explain key concepts of your work. Please highlight a minimum of four and a maximum of ten key concepts in bold in your manuscript and provide the definitions/explanations at the end of your manuscript under “Key Concepts”. Each definition has a maximum of 400 characters, including spaces.
-
-\subsection{Human Search and Animal Research}
-
-All experiments on live vertebrates or higher invertebrates must be performed in accordance with relevant institutional and national guidelines and regulations. In the manuscript, authors must identify the committee approving the experiments and must confirm that all experiments conform to the relevant regulatory standards. For manuscripts reporting experiments on human subjects, authors must identify the committee approving the experiments and must also include a statement confirming that informed consent was obtained from all subjects. In Original Research Articles and Clinical Trial Articles these statements should appear in the Materials and Methods section.
-
-\subsection{Clinical Trial Registration}
-
-Clinical trials should be registered in a public trials registry in order to become the object of a publication at Frontiers. Trials must be registered at or before the start of patient enrollment. A clinical trial is defined as"any research study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes."(\url{www.who.int/ictrp/en}). A list of acceptable registries can be found at \url{www.who.int/ictrp/en and www.icmje.org}.
-
-\subsection{Inclusion of Proteomics Data}
-
-Authors should provide relevant information relating to how the peptide/protein matches were undertaken, including methods used to process and analyze data, false discovery rates (FDR) for large-scale studies and threshold or cut-off rates for peptide and protein matches. Further information could include software used, mass spectrometer type, sequence database and version, number of sequences in database, processing methods, mass tolerances used for matching, variable/fixed modifications, allowable missed cleavages, etc.
-
-Authors should provide as supplementary material information used to identify proteins and/or peptides. This should include information such as accession numbers, observed mass (m/z), charge, delta mass, matched mass, peptide/protein scores, peptide modification, miscleavages, peptide sequence, match rank, matched species (for cross species matching), number of peptide matches, ambiguous protein/peptide matches should be indicated, etc.
-For quantitative proteomics analyses authors should provide information to justify the statistical significance including biological replicates, statistical methods, estimates of uncertainty and the methods used for calculating error.
-
-For peptide matches with biologically relevant post-translational modifications (PTM) and for any protein match that has occurred using a single mass spectrum, authors should include this information as raw data, annotated spectra or submit data to an online repository (recommended option).
-Authors are encouraged to submit raw or matched data and 2-DE images to public proteomics repositories. Submission codes and/or links to data should be provided within the manuscript.
-
-\subsection{Data Sharing}
-
-Frontiers supports the policy of data sharing, and authors are advised to make freely available any materials and information described in their article, and any data relevant to the article (while not compromising confidentiality in the context of human-subject research) that may be reasonably requested by others for the purpose of academic and non-commercial research. In regards to deposition of data and data sharing through databases, Frontiers urges authors to comply with the current best practices within their discipline.
-
 \section*{Disclosure/Conflict-of-Interest Statement}
 %Frontiers follows the recommendations by the International Committee of Medical Journal Editors (http://www.icmje.org/ethical_4conflicts.html) which require that all financial, commercial or other relationships that might be perceived by the academic community as representing a potential conflict of interest must be disclosed. If no such relationship exists, authors will be asked to declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest. When disclosing the potential conflict of interest, the authors need to address the following points:
 %•	Did you or your institution at any time receive payment or services from a third party for any aspect of the submitted work?
@@ -876,10 +917,7 @@ The statement about the authors and contributors can be up to several sentences 
 \section*{Acknowledgement}
 Text Text Text Text Text Text  Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text.
 
-\paragraph{Funding\textcolon} Text Text Text Text Text Text  Text Text.
-
-\section*{Supplemental Data}
-Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text.
+\paragraph{Funding\textcolon} Text Text Text Text  Text Text.
 
 \bibliographystyle{frontiersinSCNS&ENG} % for Science and Engineering articles
 %\bibliographystyle{frontiersinMED&FPHY} % for Medicine and Physics articles
@@ -904,8 +942,6 @@ Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Tex
 %\end{center}
 % \textbf{\refstepcounter{figure}\label{fig:02} Figure \arabic{figure}.}{ Enter the caption for your figure here.  Repeat as  necessary for each of your figures }
 %\end{figure}
-
- \textbf{Figure 1.}{ Enter the caption for your figure here.  Repeat as  necessary for each of your figures.}\label{fig:01}% If you don't add the figures in the LaTeX files, please upload them when submitting the article.
 
 %%% Frontiers will add the figures at the end of the provisional pdf automatically %%%
 
