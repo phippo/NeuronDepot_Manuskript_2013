@@ -1,0 +1,914 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is just an example/guide for you to refer to when submitting manuscripts to Frontiers, it is not mandatory to use frontiers.cls nor frontiers.tex  %
+% This will only generate the Manuscript, the final article will be typeset by Frontier after acceptance.                                                 %
+%                                                                                                                                                         %
+% When submitting your files, remember to upload this *tex file, the pdf generated with it, and all the figures.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Version 2.1 Generated 2013/11/27 %%%
+%%% You will need to have the following packages installed: datetime, fmtcount, etoolbox, fcprefix, which are normally inlcuded in WinEdt. %%%
+%%% In http://www.ctan.org/ you can find the packages and how to install them, if necessary. %%%
+
+\documentclass{frontiersSCNS} % for Science articles
+
+%\setcitestyle{square}
+\usepackage{url,lineno}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\linenumbers
+
+\lstdefinestyle{display}{
+  basicstyle=\ttfamily\footnotesize,
+}
+
+% PR: new commands
+\newcommand{\pr}[1]{[\textcolor{YellowOrange}{PR: #1}]}
+
+% Leave a blank line between paragraphs in stead of using \\
+
+\copyrightyear{}
+\pubyear{}
+
+\def\journal{Neuroinformatics}%%% write here for which journal %%%
+\def\DOI{}
+\def\articleType{Technology Report}
+\def\keyFont{\fontsize{8}{11}\helveticabold }
+\def\firstAuthorLast{Rautenberg {et~al.}} %use et al only if is more than 1 author
+\def\Authors{
+Philipp L. Rautenberg\,$^{1,2*}$,
+Alvaro Tejero-Cantero\,$^{3}$,
+Ajayrama Kumaraswamy\,$^{1}$,
+Christoph Doblander\,$^{4}$,
+Mohammad Reza Norouzian\,$^{4}$,
+Kazuki Kai\,$^{5}$,
+Hans-Arno Jacobsen\,$^{4}$,
+Hiroyuki Ai\,$^{5}$,
+Thomas Wachtler\,$^{1}$,
+and Hidetoshi Ikeno\,$^6$}
+% Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
+% If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
+\def\Address{$^{1}$Department of Biology II, Ludwig-Maximilians-Universität, Germany\\
+$^{2}$Max Planck Digital Library, München, Germany\\
+$^{3}$MRC ANU, Department of Pharmacology, University of Oxford, United Kingdom\\
+$^{4}$Department of Informatics, Technische Universität München, Germany\\
+$^{5}$Department of Earth System Science, Fukuoka University, Japan\\
+$^{6}$School of Human Science and Environment, University of Hyogo, Japan
+}
+% The Corresponding Author should be marked with an asterisk
+% Provide the exact contact address (this time including street name and city zip code) and email of the corresponding author
+\def\corrAuthor{Philipp L. Rautenberg}
+\def\corrAddress{Department of Biology II, Ludwig-Maximilians-Universität, Germany}
+\def\corrEmail{rautenberg@biologie.uni-muenchen.de}
+
+% \color{FrontiersColor} Is the color used in the Journal name, in the title, and the names of the sections.
+
+
+\begin{document}
+\onecolumn
+\firstpage{1}
+
+\title[NeuronDepot – Keeping your colleagues in sync]{NeuronDepot – Keeping your colleagues in sync by combining modern cloud storage services, local the file system, and user-friendly web techniques}
+\author[\firstAuthorLast ]{\Authors}
+\address{}
+\correspondance{}
+\extraAuth{}% If there are more than 1 corresponding author, comment this line and uncomment the next one.
+%\extraAuth{corresponding Author2 \\ Laboratory X2, Institute X2, Department X2, Organization X2, Street X2, City X2 , State XX2 (only USA, Canada and Australia), Zip Code2, X2 Country X2, email2@uni2.edu}
+\topic{Recent advances and the future generation of neuroinformatics infrastructure}% If your article is part of a Research Topic, please indicate here which.
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% The sections below are for reference only.
+%%%
+%%% For Original Research Articles, Clinical Trial Articles, and Technology Reports the section headings should be those appropriate for your field and the research itself. It is recommended to organize your manuscript in the
+%%% following sections or their equivalents for your field:
+%%% Abstract, Introduction, Material and Methods, Results, and Discussion.
+%%% Please note that the Material and Methods section can be placed in any of the following ways: before Results, before Discussion or after Discussion.
+%%%
+%%%For information about Clinical Trial Registration, please go to http://www.frontiersin.org/about/AuthorGuidelines#ClinicalTrialRegistration
+%%%
+%%% For Clinical Case Studies the following sections are mandatory: Abstract, Introduction, Background, Discussion, and Concluding Remarks.
+%%%
+%%% For all other article types there are no mandatory sections.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+
+\section{
+We report here (1) a novel approach to data sharing between collaborating
+scientists that brings together filesystem tools and the cloud (2) a pilot
+open-source implementation, called NeuronDepot and (3) an exemplary application
+of the software to a demanding use case in the neurosciences, the GinJang
+project. The main drivers for our approach are to provide collaborations with a
+transparent, automated data flow and shield scientists from having to learn new
+tools or data structuring paradigms. With minimum overhead (one-time data
+assignment from the originator) this approach makes experimental and modelling
+data available across the collaboration and cloud-ready, opening up the data to
+the advantages in software updates, and hardware scalability associated with
+elastic cloud computing. We provide a pilot implementation that relies on
+existing synchronization services and is usable from all devices via a reactive
+web interface. Finally, we show how our pilot solution solves the practical
+problems of the GinJang project, a collaboration of three universities across
+eight time zones with a complex workflow encompassing data from
+electrophysiological recordings, imaging, morphological reconstructions, and
+simulations.
+}
+
+\tiny
+ \keyFont{ \section{Keywords:} Morphology, Electrophysiology, Imaging, Data
+ Management, Neuroinformatics, cloud services} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
+\end{abstract}
+
+%%%%%%%%%%%%%%
+% Introduction
+%%%%%%%%%%%%%%
+
+\section{Introduction}
+Science today deals with a “data deluge” derived from the widespread use of
+high-throughput sensors in experiments and the ever more complex simulations
+afforded by increased computational power. Both measured and simulated data
+need to be stored in raw form, preprocessed, contextualized with metadata,
+organized to facilitate queries and then analyzed to produce scientific
+statements. Ideally, peer-reviewed data should also be available for
+replication and reanalysis to test new hypotheses as knowledge progresses.
+
+In addition to these single-lab data management needs, the multidisciplinary
+character of many of the questions addressed and their complexity benefit from
+the coordinated effort of geographically distributed specialists. The need for
+collaboration is particularly acute in neuroscience, an inherently multilevel
+enterprise that tackles questions spanning disparate levels of organization
+(genes, neurons, circuits, behaviour...) with a variety of methods (sequencing,
+anatomy, electrophysiology, computer simulations...). Thus, a collaboration
+such as the GinJang project introduced below, supports the scientists.
+
+One particularly problematic aspect of the workflow concerns thus the sharing
+across labs of highly structured and voluminous data. Because often pieces of
+the workflow are interdependent, a further step of the local work depending on
+another operation that is remotely carried out, the process should be as
+automatic and as fast as possible. For example analysis results can inform
+further experimental data collection, whereupon it is clearly of advantage that
+they are made available as they are produced.
+
+Existent proposals to alleviate the data management overhead frequently require
+scientists to relinquish their local processing workflow in order to be able to
+offer distributed access for collaborators to participate in the project. We
+propose here a novel approach which integrates seamlessly the prevalent
+filesystem-based acquisition, munging, analysis and publication workflows by
+leveraging proven cloud synchronization technology. Our implementation of this
+approach, called NeuronDepot enables researchers to continue interacting with
+the scientific project database through the filesystem and at the same time
+opens up the data for analysis in cloud-based web applications. In this way
+NeuronDepot exploits the existing substantial investment in development,
+acquisition and training in local applications, with their mature and rich
+interfaces and local access to data, and, at the same time, the advantages of
+upcoming cloud-based software with its platform independence, managed updates
+and transparent scalability. We illustrate the approach with a NeuronDepot
+deployment tailored to the specific needs of the GinJang project
+[http://projects.g-node.org/ginjang/], a demanding use case that combines data
+from electrophysiological recordings, imaging, morphological reconstructions,
+and simulations.
+
+We intend for our approach to serve as an example of a gradual path towards the
+availability of well marked-up scientific data in the cloud. By offering new
+functionality in a way compatible with existing services, tools, training, and
+working environments the costs of data sharing in a collaboration are brought
+down to a minimum while the accessibility of research assets is future-proofed.
+
+Compared to other data-intensive research disciplines in life sciences such as
+genomics and proteomics [Gelbart et al. 1997, Stoesser et al., 1997, De
+Schutter 2008], neurosciences lag behind regarding the use of databases for the
+organization and exchange of data. Only recently attempts have started to
+integrate neuroscience databases [Amari et al. 2002, Gupta et al. 2008], and so
+far the focus has been mostly placed on anatomical data. In the domain of
+neurophysiology, one of the first public databases for electrophysiological
+data was the neurodatabase.org project (neurodatabase.org). In this project, an
+elaborate data model and format along with a query protocol for the exchange of
+neurophysiological data were developed. The data, typically obtained from
+publications is made available with extensive metadata and provided in a
+standard format developed in the project.
+
+The CRCNS site (crcns.org) hosts electrophysiological data that have been
+specifically selected by contributing labs for the purpose of making the data
+available to the public. Typically, these data are from studies that have been
+published and they may be used for further investigations after they have
+served their primary purpose. Data format and documentation are different for
+each dataset.
+
+The CARMEN project (www.carmen.org.uk) provides a platform for data analysis
+and data exchange where the owner of the data can keep the data private, or can
+make the data available to selected users or the public. The platform also
+provides services for data analysis. During file upload, the user has the
+option to enter metadata describing the experiment in which the data were
+recorded. 
+
+The German Neuroinformatics Node (G-Node) provides a platform for data
+organization and data sharing of neurophysiological data
+(portal.g-node.org/data). Users can upload, organize, and annotate data, and
+make them accessible to other users or the public. Data conversion functions
+are provided. Data annotation follows a flexible schema \citep{Grewe2011} so
+that any metadata necessary can be entered. This platform is currently being
+extended with an API for fine-grained data access through common languages like
+Python or Matlab, which will provide a framework that scientists can use to
+manage and access directly from their local data workflow environment.
+Recently, the International Neuroinformatics Coordinating Facility established
+the INCF Dataspace (incf.org/dataspace), a cloud based file system to federate
+all kinds of neuroscience data.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Scope of the NeuronDepot approach
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Scope of the NeuronDepot approach}
+
+NeuronDepot answers these needs while remaining domain agnostic, i.e. in
+contrast of some of the infrastructure solutions presented in Section [XX] it
+does not focus on anatomy or electrophysiology but leaves the specifics of each
+data kind to the well established working environments of the participating
+members. NeuronDepot supports the scientist by providing an infrastructure that
+integrates data flows with the corresponding management and data analysis on
+the project level.
+
+Beyond facilitating collaboration in the GinJang project,  the development of a
+such database to properly store and backup all the data of the project makes it
+accessible to many further projects based on the findings of the GinJang
+project. Putting data into structured databases enables its reuse, and
+replication and verification of analyses.
+
+\subsection{The GinJang Project and its Workflow}
+
+NeuronDepot was developed around the Japanese-German collaboration GinJang.
+This project provides a perfect opportunity for use-case-driven development and
+field-testing of the NeuronDepot infrastructure because 1) it involves three
+universities with several labs across multiple time zones, 2) it deals with
+different types of data: neuroanatomical and electrophysiological and 3) it
+requires quick synchronization and reliable transfer of large quantities of raw
+data with complex associated metadata, including both recorded data and
+simulation results.
+
+The GinJang project uses the honeybee brain as a model for establishing the
+NeuronDepot. Honeybee communicates the direction and distance to food sources
+with hive-mates by waggle dance \pr{REF}(von Frisch, 1967). The hive-mates detect and
+process airborne vibration caused by the bee's wingbeat during the waggle
+dance, which consists of vibration pulses with a highly specific temporal
+pattern. We have already identified several critical interneurons for
+processing the airborne vibration \pr{REF}(Ai et al., 2007, 2009; Ai, 2010, Ai and
+Itoh, 2012; Ai and Hagio, 2013), however the neural processing of these
+vibration signals has rarely been studied, and the types and roles of the
+neurons involved, their circuitry and its development are largely unknown. 
+
+Members of the GinJang project also developed a program \pr{REF}(SIGEN, Minemoto et
+al., 2009)  that automatically extracts and segments the morphology of the
+critical interneurons in the vibration processing. GinJang project will clarify
+the morphological characteristics of the vibration-processing neurons and their
+morphological development of the neuron depending on the age and on the
+experiences of dance communication.  
+
+We describe next the workflow of the GinJang project, a sophisticated use-case
+representative for NeuronDepot. The experimental setup of the GinJang project
+is at Fukuoka University where electrophysiological measurements (Fig.1A),
+electrophysiological analyses (Fig. 1D), and imaging (Fig. 1B) are performed.
+The resulting image stacks are used at the University of Hyogo for neuronal
+segmentation (Fig.1C). These 3D neuronal segmentations are then normalized by
+registering them into the Honeybee standard brain back at Fukuoka University.
+Finally, morphological analyses, simulations, and further analyses  are done at
+Ludwig-Maximilians-Universität München (LMU) in Germany.
+
+
+\subsubsection{Experiment}
+
+The vibration-sensitive neurons in the honeybee auditory system  [Ai et.al 2009]  are electrophysiologically and anatomically characterized at Fukuoka University. Using sharp electrodes, voltage traces are recorded from interneurons in response to several sensory input protocols [Ai et.al 2009; Ai and Itoh, 2012; Kai et al., 2013]. Then the neuron is filled with a dye and imaged at a different setup using confocal microscopy to generate anatomical image stacks [Ai, 2010, Ai and Hagio, 2013]. Thus, every experiment generates three kinds of data-metadata bundles:
+
+\begin{enumerate}
+\item Electrophysiological data. E.g.: voltage and current traces
+\item Microscopy image stacks
+\item Honeybee metadata (e.g. age or colony) and neuron metadata (e.g. phenotype) Segmentation
+\end{enumerate}
+
+\subsubsection{Segmentation}
+
+Image stacks are transferred to the University of Hyogo, Japan. Here, using
+automated image analysis software SIGEN [Yamasaki et al., 2006; Minemoto et
+al., 2009,] the 3D structure of the neuron is extracted and stored using the
+SWC file format. At this stage two kinds of data are generated:
+
+\begin{enumerate}
+\item Segmented neuron. E.g.: SWC file
+\item Parameters used for segmentation (which constitute segmentation metadata)
+\end{enumerate}
+
+
+\subsubsection{Registration}
+
+The morphological segmentations of the neurons are transferred back to Fukuoka
+University for registration into the Honeybee Standard Brain using various
+transformations. We use the honeybee standard brain (HSB) to analyze the
+spatial relationships among morphologically and physiologically characterized
+vibration-sensitive neurons. The neuronal profiles of stained interneurons,
+obtained from different preparations, are segmented  using Amira 4.1 (Evers et
+al., 2005). Subsequently, the neuropilar outlines are traced manually and
+segmented with the Amira 4.1 label field editor. These neuropilar label fields
+are used to register the segmented neuron of each preparation into the HSB
+following the method described by Brandt et al. (2005).
+
+
+\subsubsection{Analysis}
+
+These segmentations  (both registered and unregistered) are transferred to the
+LMU, Germany where 3D segmentations are used for morphometric analysis and
+simulation studies. At least (?) four kinds of data are generated at this
+stage:
+
+\begin{enumerate}
+\item model files for simulations
+\item simulation metadata. E.g.: parameters of simulation, location of stimulation (input) and measurements (output).
+\item simulation results: visualizations and summary data
+\item morphometric analysis metadata. E.g.: Subregion of analysis, metrics used
+\item results of morphometric analysis: volume, surface area, number of branch points
+\end{enumerate}
+
+
+\subsubsection{Traditional Data Transfer Methods}
+
+The workflow of the GinJang project requires multiple data transfers between
+diverse processing stages. These transfers were previously done via e-mail,
+usb-sticks, external hard drives, ftp-servers, or cloud storage services (like
+Dropbox). NeuronDepot replaces these traditional data transfer methods.
+
+
+%%%%%%%%%%%%%%
+% Requirements
+%%%%%%%%%%%%%%
+
+\section{Requirements}
+We asked the members of the Ginjang Project to specify the features that they
+expect to have in  NeuronDepot. Based on those we came up with the set of
+following generalized requirements:
+\begin{enumerate}
+\item Data Management
+    \begin{itemize}
+    \item Replacement of "manual" data transitions using memory devices like
+    e-mail, usb-sticks, external hard drives, ftp-servers, or cloud storage
+    services
+    \item Ease of metadata assignment for various kinds of data, like image stacks,
+    voltage trace, neuronal reconstructions
+    \item Visibility of  the current state of the project through a web browser
+    \item Automatic update and synchronization across project workstations
+    \end{itemize}
+\item Integration
+    \begin{itemize}
+    \item Maintenance of the well established work environments of the participating scientists
+    \item Minimization of the integration effort
+    \end{itemize}
+\item Data Security
+    \begin{itemize}
+    \item Reliability of upload and download of large data
+    \item Access control
+    \end{itemize}
+\item Automated Backup
+\item Additional Requirements
+    \begin{itemize}
+    \item Easy adaptation to new data-specific requirements that emerge during project
+    \item Support for automated data-processing (cleaning, metadata extraction,
+    analysis and simulation scripts)
+    \item Quick overview of contents and metadata
+    \item Flexible search of data
+    \end{itemize}
+\end{enumerate}
+
+
+%%%%%%%%%
+% Concept
+%%%%%%%%%
+
+\section{Concept}
+
+The key element behind NeuronDepot is a simple yet flexible schema for the data
+that enables the construction of  hierarchical views. Such views are suitable
+to be projected into filesystem trees. These projections can then be
+synchronized via any cloud storage layer. 
+
+The NeuronDepot approach is extremely simple. Assigning data units (see
+definitions below) to a simple core schema enables to produce flexible
+hierarchical views of the data in the form of context trees that provide a
+context path for each data unit. Such hierarchical views gain interest because
+they can be reshaped at will for specific processing needs, and are naturally
+adapted for the use of filesystem tools, singularly cloud synchronization
+software. Definitions for the emphasized terms are provided next.
+
+
+\subsection{Definitions}
+
+\textbf{Data unit:} A data unit (Fig. 3, bottom left and  bottom right) is a
+logical grouping of one (trivial case) or multiple files which are generated by
+a single process. This process can be an experiment, an algorithmic data
+transformation or a simulation. Examples of individual data units in the
+GinJang context include: an image stack consisting of several image files, the
+morphology of a neuron represented in a single SWC-file, or several plots and
+tables resulting from simulations of a neuron's electrophysiological
+characteristics.
+
+\textbf{Context Path and Context Trees:} Any data unit can be uniquely
+identified by a subset of the metadata attributes associated with it (metadata,
+Fig. 3, top). We define the context path of a data unit as an ordered list of
+the specific attributes that uniquely identify it. This context path can be
+used to construct a path in the file system where the order of metadata
+attributes corresponds to the hierarchical levels in the file system. 
+
+\emph{Example}: If a member of the project wants to analyze one particular
+segmentation-data unit of neuron LY-1 of honeybee HB456, the following two
+paths would represent these attributes:
+
+\begin{lstlisting}[style=display]
+(1) HB123/NRN-1/segmentation/
+(2) segmentation/HB123/NRN-1/
+\end{lstlisting}
+
+
+The ideal order of the attributes depends on how the data units are to be
+queried for specific analyses: the path order is projected into a hierarchy and
+therefore defines different grouping levels specific analyses: the path order
+is projected into a hierarchy and therefore defines different grouping levels
+
+\subsection{Core Ideas}
+\subsubsection{Hierarchical Arrangement of Data}
+
+NeuronDepot applies systematically the principle of using of folder and file
+names as metadata for the data contained in the filesystem. For flexibility,
+the collection of data units is stored in a central server in a flat structure
+where each data unit has a unique identifier, and the metadata is kept separate
+and referenced to those identifiers. When a user defines the subset of data she
+is interested in, along with a hierarchical arrangement that suits her needs
+(what we call a projection) NeuronDepot creates a user- and task-specific
+context tree as a hierarchy of symbolic links with the data units sitting at
+the leaves. By exposing these hierarchies to a synchronization daemon, the
+projection is made available to every workstation that subscribes to it. 
+
+NeuronDepot also leverages the advances in synchronization technology for the
+data upload process: the user simply places new data units in a designated
+floating folder (i.e. a folder outside the context tree). This folder is
+synchronized to the server. The data units appear then as available for
+metadata assignment via the NeuronDepot web app. Once metadata assignment is
+complete, data units can be projected, as described above, to hierarchies that
+are adapted to the local users' workflows. Data units are now also accessible
+to cloud analytic services that directly query the metadata database without
+demanding a specific projection, as these clients are not constrained by the
+hierarchical data model of filesystems. NeuronDepot thus maintains consistency
+all the way from the scientists' local copy of acquired data to the cloud-based
+analysis platforms.
+
+
+\subsubsection{Cloud-Based Data Flow}
+
+NeuronDepot's mechanism for data transmission is based on synchronization by
+cloud storage services (Fig. 5). Cloud storage services are used to keep all
+local computers that are involved in the project updated by the server and,
+therefore, updated among each other. This core update process is based on
+synchronization on the file system level. In order to integrate data units into
+workflows, the system provides two types of base folders: floating folders
+(Fig. 5-1) and context tree folders(Fig. 5-3). Floating folders are provided
+with read/write permissions for project members (we call it floating folder, as
+data within that folder is not assigned to the metadata structure and therefore
+in a floating state ). Floating folders are part of the data-assignment process
+(Fig. 5-2) . The second type of folder is the context tree folder with
+read-only permissions for project members that synchronize projected context
+trees to the local work environment.
+
+The underlying data transfer workflow replaces traditional transfer methods as
+described above by these folders which are organized by consists of three
+steps: (1) new data units are stored within the floating folder and
+synchronized to the server. (2) Synchronized data units within the floating
+folder are assigned to the existing project data via a web application. As
+NeuronDepot's web GUI uses responsive features, data can be assigned from
+diverse devices like smart phones, tablet PCs, or traditional desktop
+computers. The system assures that all data is correctly related to each other
+and that all data stays consistent. Project members can plug scripts into this
+assignment process to automate and facilitate data processing. Moreover, the
+system provides diverse reports to brief the scientists about the current
+state, or about recent changes. (3) NeuronDepot distributes data units back to
+project members. According to the underlying context tree, NeuronDepot
+synchronizes projected context tree folders by cloud storage services to the
+workstations of the scientists.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Design Considerations
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Design Considerations}
+The architecture of NeuronDeport follows these principles:
+
+\textbf{Incorporation of existing open source components} \texttt{  } The open source ecosystem holds multiple solutions solving very specific tasks.
+E.g. controlling the persistence of objects by mapping them to database
+structures, solving numerical tasks highly optimized, or illustrate data by
+drawing graphs and figures. Moreover, the community of neuroinformatics have
+added  very domain specific tools for simulations, analysis, and processing of
+data from the field.
+
+\textbf{Application of established services} \texttt{  } Over the past few
+years, cloud computing has rapidly emerged as a widely accepted computing
+paradigm built around core concepts such as on-demand computing resources,
+elastic scaling, elimination of up-front investment, reduction of operational
+expenses, and establishing a pay-per- use business model for information
+technology and computing services. There are different models of cloud
+computing that are offered today as service, such as software as a service
+(SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS)
+[REF].
+
+\textbf{Distribution of processes} \texttt{  } In order to make the data
+management and data processing independent The use of existing software tools
+helps to reduce the development time and effort.  \emph{GWDG Cloud Share}, based in
+Germany, computational centre of MPG; \emph{naive synchronization} can lead to full
+hard drives – requires controlled data synchronization
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% System Architecture
+%%%%%%%%%%%%%%%%%%%%%
+\section{System Architecture}
+
+The architecture underlying NeuronDepot consists of individual layers (Fig. 6). Users can access NeuronDepot via a web application or through cloud storage synchronization clients.
+
+
+\subsection{Virtual Filesystem Projection Layer}
+The filesystem projection layer projects the data items based on metadata to
+directories and files. The hierarchy is stored in project metadata storage, the
+data items in the storage backend.
+
+When new data items are added, deleted or modified, project specific workflows
+can be triggered.  The workflows are purely computational and are composed of
+multiple tasks. Because the workflows are executed asynchronously, a consistent
+view of the storage backend is needed. We therefore propose a Virtual
+Filesystem Projection layer which can map data items and directories to cloud
+storage synchronization clients based on project specific metadata and provides
+a consistent view of the file system structure for computational workflows.
+
+A way to achieve this requirement is to serialize all changes at the server and
+introduce persistent data structures~\cite{Driscoll1989}. The persistent data
+structure is shared between the server and the computational workflow. One way
+to share the data structure would be to implement a custom library for file
+system access based on FUSE.  Hence the workflow has a consistent view on the
+data items until it finishes. When the workflow is finished, the changes are
+committed. Given there was another modification while the workflow was running,
+the transaction wouldn’t be able to commit. In this case the workflow could be
+rerun based on the latest snapshot, or a new branch would be created. A
+conceptual similar approach is transactional memory. Transactional memory
+provides programming abstractions which makes it easier to develop
+multithreaded applications~\cite{Clojure}. In NeuronDepot we want to use a
+similar approach to provide a consistent view on the data items while a
+workflow is executed. The storage backend uses a SHA-1 hash as unique
+identifier for the data item in the project bucket. Calculating a SHA-1 hash of
+11.5GB file on a commodity laptop with a SSD took only about 41 seconds, hence
+it is feasible to take a SHA-1 hash as the unique identifier.
+
+This approach has also other advantages:  The filesystem can be viewed to an
+arbitrary point in time in the history of the project and no snapshots are
+needed. This is also space efficient since it benefits from structural sharing
+and doesn’t have to keep snapshots of data items. The integrity of a file can
+be checked by calculating the hash and comparing it.
+
+\subsection{Persistence Layer}
+
+\textbf{Project Metadata} \texttt{  } Within each specific project database
+additional metadata is stored. This can be metadata which was extracted by a
+computational workflow or manually entered data. Databases which would support
+this kind of scenario would be MongoDB~\cite{ MongoDB} or
+CouchDB~\cite{CouchDB}.
+
+\textbf{Storage Backend} \texttt{  } The responsibility of the storage backend
+is to consistently store data items and provide abstractions for the file
+system projection layer. The abstractions provided are similar to a key value
+store. The Amazon S3 API distinguishes between buckets and objects~\cite{
+AmazonS3}. Objects, which are data items, are put into buckets. Each bucket has
+a flat namespace. There are multiple open source alternative
+implementations~\cite{RiakCS, OpenstackStorage}. For the storage backend of
+NeuronDepot we suggest using a backend with a similar API. The hierarchy of the
+backend filesystem is stored within the project specific metadata and linked
+through a key. A key is created based on the SHA-1 hash of the data item
+itself. With that the content of the file can be further checked for
+corruptions.
+
+
+\subsection{Business Logic Layer}
+
+The control-flow of a workflow is constructed out of multiple tasks. Typically
+tasks extract metadata, index data items, manipulate images or calculate
+statistics. Workflows are typically created in Python with the help of
+libraries like Snakemake \citep{Koester2012}. Workflows in NeuronDepot should run
+without specific adaptations.
+
+Workflows can be triggered explicitly by user interactions over the web
+frontend or implicitly by the Virtual Filesystem Projection layer when new
+files are added. The execution state of the workflow is displayed in the web
+application. The synchronization of the files between the researchers is done
+asynchronously in the background with cloud synchronization clients, see (Fig.
+6). Hence the execution of computational workflows  has to be deterministic
+despite of asynchronous changes of files. This requirement is fulfilled by
+persistent data structures, see ~\ref{FileSystemProjectionLayer}.
+
+\subsection{Cloud Storage Synchronization Clients}
+
+Clients like Dropbox, Google Drive or Powerfolder are connected to the virtual
+filesystem projection layer. When files are added with one client, the files
+are persisted in the storage backend. When new files are added, removed or
+changed, project specific workflows can be triggered.
+
+
+\subsection{Graphical User Interface Layer}
+
+\pr{TBD}
+1. Web application
+2. Developed along feedback by collaborators
+3. Modules aligned with processing stages
+4. Micro web framework: Python-Flask: web page structure – just a configuration of the database structure, less effort.
+5. Assign data, enter metadata, annotation data with metadata
+6. Upload process is not handled by the GUI. As mentioned above, it is handled by the Filesystem Projection layer. (Just for data assignment)
+
+
+\section{Discussion}
+
+\subsection{Adaptability}
+The system architecture of NeuronDepot can be conceptually divided into two
+parts: the core engine which is not specific to any processing stage, and thin
+modules which are project specific, e.g.: In the Ginjang project, segmentation
+is a processing stage. A thin module provides all the required features for the
+data and metadata produced by this processing stage like connecting it to other
+existing data in NeuronDepot, handling upload of this data and specifying the
+information necessary while presenting it to the user.
+
+NeuronDepot can be adapted to other projects by incorporating project specific
+thin modules upon its core engine. These thin modules correspond to the
+different processing stages of the project (Fig.1), while the core engine
+remains the same.
+
+\pr{by Alvoaro:} Potential discussion of transparent navigation into hierarchical structures such as HDF5 files, YAML files or any other.
+
+\subsection{Advantages over other existing systems}
+Provision of data via a file system opens up plethora of tools that are
+available at the local work bench, like (i) Desktop-Search using diverse
+indexing methods (spotlight, locate, Copernic, Google-Desktop search) (ii) File
+system explorers(for  searching and sorting) (iii)Backup (iv)Version-Control
+(v) Unix-world applications like grep, find and tree (since “everything is a
+file”) (vi) Transmission protocols like ftp, ssh and http (vii) File
+Synchronization Services
+
+Unlike with other existing solutions, using NeuronDepot does not require
+learning a new GUI or any other infrastructure specific usage features since at
+the user end, the data is provided as  a filesystem.
+
+An important feature of NeuronDepot is the isolation of the upload process from
+the GUI. Data is not uploaded by the user manually but is just assigned. The
+user does not need to wait for the file to be uploaded.
+
+At the end user, a subset of the data in the database is presented in a tree
+structure. Here, what subset has to be presented and in what structure is
+specified by the user. Such a representation of a desired subset of the data in
+a hierarchical structure provides a partitioning/grouping of the data which
+becomes very handy if the user intends to perform analysis or comparison on a
+specific subset of the data.
+
+As mentioned before, the upload process of NeuronDepot consists of two steps.
+Data is copied into the virtual file system and then assigned from there to the
+database using the GUI. This upload procedure facilitates assisted assignment
+of data since the data is available beforehand. Certain analysis scripts can be
+started on the data in the virtual file system and its results can be later
+used during the assignment of the data via the GUI.
+
+In NeuronDepot, a specific subset of data is encapsulated into an entity via
+the concept of Context Trees. Such an encapsulation facilitates management
+operations such as referencing, tagging and sharing, in which treatment of the
+subset of the data as an entity is essential. This is very much like a book
+encapsulating a set of concepts/facts and making them a single entity.
+
+\subsection{Further Directions, Limitations and Open Questions}
+
+A package/extension for an existing web-framework like Flask / Django /Ruby on
+Rails/ can be developed by reorganizing the system components of NeuronDepot.
+Several existing solutions of the Open Source Ecosystem were used in the
+development of NeuronDepot and this will be a way of contributing back to it.
+Moreover, it will serve as a good building block for the development of new
+data software.
+
+Furthermore, adaptation of NeuronDepot for a specific project workflow is not
+just a reconfiguration of the infrastructure. It also involves additional
+scripting of thin modules. In the first step NeuronDepot will support only a
+single core-engine(tenant) with a single project. Support for multi tenancy
+requires elaborate user and rights management which is planned in future. In
+the first step this can be worked around by installing multiple instances.
+
+At the moment, the context trees used to provide the user with data are hard
+coded. The user has to communicate with the developers to have different data
+structures provided to him. This process can be slow and can prove to be a
+hindrance to the scientist's work. A service can be incorporated which enables
+the user to specify what data structure he needs. This would reduce the user's
+dependence on the developers and also allow the user to quickly adjust the data
+that he requires from NeuronDepot.
+
+\subsection{Challenges and Open questions}
+
+\begin{itemize}
+\item The main goal of NeuronDepot is to provide a structured data units
+related to their metadata. Thus, as a system designer we do less effort to the
+synchronization service (e.g. Dropbox, GWDG Cloud Share, ...) within our system
+data communication.
+\item Synchronization in NeuronDepot, especially, uploading process, has to be
+consistent, reliable and secure. Does existing synchronization services (e.g.
+Dropbox, ...) are satisfactory and compatible with our system or we have to
+develop a new synchronization service? Furthermore, NeuronDepot requires a
+reliable cloud storage system for its intended functioning. Are these existing
+cloud storage services compatible and reliable ~\cite{Borgmann2012}
+\item Authorization and permission on each file is managed by sync services
+(manually by the system administrator). In future it should be dynamic and
+smart enough for better improvement which leads to administrative overhead
+reduction.
+\item User has to ask system administrator to give him the space (resource
+allocation) and permission to upload his/her files in floating folder (sync
+process). With this Approach, NeuronDepot remains independent and separated
+within its services, but on the other hand, it increases the administrative
+overhead. In addition, agreement on how much space/quota should each user has,
+could be a problem. Do we have enough space for every user in our FileDepot or
+in our cloud storage? (one solution to tackle the space limitation is using
+BitTorrent Sync as the sync service in NeuronDepot)
+\item Managing the whole process of system administrator should be Dynamic in
+future. A system notification center should be design and develop to manage our
+user requirement and interaction.
+\item The file projection layer service or the data communication system might
+make a mistake in buffering and copying the data of the file. The hardware
+processor or its local memory might have a transient error while doing the
+buffering and copying, either at end user, our local servers or cloud storage
+servers. What kind of measurements do we have to take into consideration to
+address these problems (It's managed by our user sync services)? How should be
+a careful file projection layer service in NeuronDepot (we can implement the
+copy-on-write technique)?
+\end{itemize}
+
+
+\section{Conclusion}
+With this software architecture, we contribute an approach to scientific data
+worfklow and a tool, NeuronDepot to the ecosystem of neuroscientific software.
+Its principal merit is to integrate smoothly with established tools and resolve
+the transition from local to cloud-based processing, without requiring
+researchers to relinquish control of their data or analysis but enabling them
+to leverage the advantages of cloud services. NeuronDepot has already been
+successfully deployed on a large-scale collaboration, the GinJang project.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{itemize}
+%for bulleted list, use itemize
+\item Introduction: Succinct, with no subheadings.
+\item Materials and Methods: This section may be divided by subheadings. This section should contain sufficient detail so that when read in conjunction with cited references, all procedures can be repeated.
+\item Results: This section may be divided by subheadings. Footnotes should not be used and have to be transferred into the main text.
+\item Discussion: This section may be divided by subheadings. Discussions should cover the key findings of the study: discuss any prior art related to the subject so to place the novelty of the discovery in the appropriate context; discuss the potential short-comings and limitations on their interpretations; discuss their integration into the current understanding of the problem and how this advances the current views; speculate on the future direction of the research and freely postulate theories that could be tested in the future.
+\end{itemize}
+
+Please note that the Material and Methods section can be placed in any of the following ways: before Results, before Discussion or after Discussion.
+
+\subsection{Clinical Case Studies}
+
+For Clinical Case Studies the following sections are mandatory:
+
+\begin{itemize}
+%for bulleted list, use itemize
+\item Introduction: Include symptoms at presentation, physical exams and lab results.
+\item Background: This section may be divided by subheadings. Include history and review of similar cases.
+\item Results: This section may be divided by subheadings. Include diagnosis and treatment.
+\item Concluding Remarks
+\end{itemize}
+
+%\end{methods}
+
+
+
+\section{Results}
+
+Frontiers requires figures to be submitted individually, in the same order as they are referred to in the manuscript. Figures will then be automatically embedded at the bottom of the submitted manuscript. Kindly ensure that each table and figure is mentioned in the text and in numerical order. Permission must be obtained for use of copyrighted material from other sources (including the web). Please note that it is compulsory to follow figure instructions. Figures which are not according to the guidelines will cause substantial delay during the production process.
+
+\begin{table}[!t]
+\processtable{Resolution Requirements for the figures\label{Tab:02}}
+{\begin{tabular}{lllll}\toprule
+Image Type & Description & Format & Color Mode & Resolution\\\midrule
+Line Art & An image composed of lines and text,  & TIFF, JPEG & RGB, Bitmap & 900 - 1200 dpi\\
+           & which does not contain tonal or shaded areas.& & &\\
+           Halftone & A continuous tone photograph, which contains no text. & TIFF, EPS, JPEG & RGB, Grayscale & 300 dpi\\
+Combination & Image contains halftone + text or line art elements. & TIFF, JPEG & RGB,Grayscale & 600 - 900 dpi\\\botrule
+\end{tabular}}{This is a footnote}
+\end{table}
+
+\begin{equation}
+\sum x+ y =Z\label{eq:01}
+\end{equation}
+
+\textbf{Table\ref{Tab:02}} shows the resolution requirements for the figures. The figures must be legible:
+\begin{enumerate}
+\item The smallest visible text is no less than 8 points in height, when viewed at actual size.
+\item Solid lines are not broken up.
+\item Image areas are not pixelated or stair stepped.
+\item Text is legible and of high quality.
+\item Any lines in the graphic are no smaller than 2 points width.
+\item The actual size of the figure must be of at least 8.5 cm.
+\end{enumerate}
+
+\section{Discussion}
+
+Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text Text.
+Additional Requirements:
+\subsection{Corrections}
+
+Minor corrections to published articles can be communicated to the Frontiers Production Office at production.office@frontiersin.org. If you need to communicate important changes to an article please submit a General Commentary. Submit the article with the title “Erratum: Original Title of Article”.
+
+\subsection{Commentaries on Articles}
+
+At the beginning of your manuscript provide the citation of the article commented on.
+
+\subsection{Focused Reviews}
+
+For Tier 2 invited Focused Reviews the sections Introduction, Material and Methods, Results, and Discussion are recommended. In addition the authors must submit a short biography of the corresponding author(s). This short biography has a maximum of 600 characters, including spaces.
+
+A picture (5 x 5 cm, in *.tif or *.jpg, min 300 dpi) must be submitted along with the biography in the manuscript and separately during figure upload.
+Focused Reviews highlight and explain key concepts of your work. Please highlight a minimum of four and a maximum of ten key concepts in bold in your manuscript and provide the definitions/explanations at the end of your manuscript under “Key Concepts”. Each definition has a maximum of 400 characters, including spaces.
+
+\subsection{Human Search and Animal Research}
+
+All experiments on live vertebrates or higher invertebrates must be performed in accordance with relevant institutional and national guidelines and regulations. In the manuscript, authors must identify the committee approving the experiments and must confirm that all experiments conform to the relevant regulatory standards. For manuscripts reporting experiments on human subjects, authors must identify the committee approving the experiments and must also include a statement confirming that informed consent was obtained from all subjects. In Original Research Articles and Clinical Trial Articles these statements should appear in the Materials and Methods section.
+
+\subsection{Clinical Trial Registration}
+
+Clinical trials should be registered in a public trials registry in order to become the object of a publication at Frontiers. Trials must be registered at or before the start of patient enrollment. A clinical trial is defined as"any research study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes."(\url{www.who.int/ictrp/en}). A list of acceptable registries can be found at \url{www.who.int/ictrp/en and www.icmje.org}.
+
+\subsection{Inclusion of Proteomics Data}
+
+Authors should provide relevant information relating to how the peptide/protein matches were undertaken, including methods used to process and analyze data, false discovery rates (FDR) for large-scale studies and threshold or cut-off rates for peptide and protein matches. Further information could include software used, mass spectrometer type, sequence database and version, number of sequences in database, processing methods, mass tolerances used for matching, variable/fixed modifications, allowable missed cleavages, etc.
+
+Authors should provide as supplementary material information used to identify proteins and/or peptides. This should include information such as accession numbers, observed mass (m/z), charge, delta mass, matched mass, peptide/protein scores, peptide modification, miscleavages, peptide sequence, match rank, matched species (for cross species matching), number of peptide matches, ambiguous protein/peptide matches should be indicated, etc.
+For quantitative proteomics analyses authors should provide information to justify the statistical significance including biological replicates, statistical methods, estimates of uncertainty and the methods used for calculating error.
+
+For peptide matches with biologically relevant post-translational modifications (PTM) and for any protein match that has occurred using a single mass spectrum, authors should include this information as raw data, annotated spectra or submit data to an online repository (recommended option).
+Authors are encouraged to submit raw or matched data and 2-DE images to public proteomics repositories. Submission codes and/or links to data should be provided within the manuscript.
+
+\subsection{Data Sharing}
+
+Frontiers supports the policy of data sharing, and authors are advised to make freely available any materials and information described in their article, and any data relevant to the article (while not compromising confidentiality in the context of human-subject research) that may be reasonably requested by others for the purpose of academic and non-commercial research. In regards to deposition of data and data sharing through databases, Frontiers urges authors to comply with the current best practices within their discipline.
+
+\section*{Disclosure/Conflict-of-Interest Statement}
+%Frontiers follows the recommendations by the International Committee of Medical Journal Editors (http://www.icmje.org/ethical_4conflicts.html) which require that all financial, commercial or other relationships that might be perceived by the academic community as representing a potential conflict of interest must be disclosed. If no such relationship exists, authors will be asked to declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest. When disclosing the potential conflict of interest, the authors need to address the following points:
+%•	Did you or your institution at any time receive payment or services from a third party for any aspect of the submitted work?
+%•	Please declare financial relationships with entities that could be perceived to influence, or that give the appearance of potentially influencing, what you wrote in the submitted work.
+%•	Please declare patents and copyrights, whether pending, issued, licensed and/or receiving royalties relevant to the work.
+%•	Please state other relationships or activities that readers could perceive to have influenced, or that give the appearance of potentially influencing, what you wrote in the submitted work.
+
+The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
+
+\section*{Author Contributions}
+%When determining authorship the following criteria should be observed:
+%•	Substantial contributions to the conception or design of the work; or the acquisition, analysis, or interpretation of data for the work; AND
+%•	Drafting the work or revising it critically for important intellectual content; AND
+%•	Final approval of the version to be published ; AND
+%•	Agreement to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved.
+%Contributors who meet fewer than all 4 of the above criteria for authorship should not be listed as authors, but they should be acknowledged. (http://www.icmje.org/roles_a.html)
+
+The statement about the authors and contributors can be up to several sentences long, describing the tasks of individual authors referred to by their initials and should be included at the end of the manuscript before the References section.
+
+
+\section*{Acknowledgement}
+Text Text Text Text Text Text  Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text.
+
+\paragraph{Funding\textcolon} Text Text Text Text Text Text  Text Text.
+
+\section*{Supplemental Data}
+Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text.
+
+\bibliographystyle{frontiersinSCNS&ENG} % for Science and Engineering articles
+%\bibliographystyle{frontiersinMED&FPHY} % for Medicine and Physics articles
+\bibliography{neuron_depot}
+
+\section*{Figures}
+
+%%% Use this if adding the figures directly in the mansucript, if so, please remember to also upload the files when submitting your article
+%%% There is no need for adding the file termination, as long as you indicate where the file is saved. In the examples below the files (logo1.jpg and logo2.eps) are in the Frontiers LaTeX folder
+%%% If using *.tif files convert them to .jpg or .png
+
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=3.5cm]{logo1}% This is a *.jpg file
+%\end{center}
+% \textbf{\refstepcounter{figure}\label{fig:01} Figure \arabic{figure}.}{ Enter the caption for your figure here.  Repeat as  necessary for each of your figures }
+%\end{figure}
+
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=3.5cm]{logo2}% This is an *.eps file
+%\end{center}
+% \textbf{\refstepcounter{figure}\label{fig:02} Figure \arabic{figure}.}{ Enter the caption for your figure here.  Repeat as  necessary for each of your figures }
+%\end{figure}
+
+ \textbf{Figure 1.}{ Enter the caption for your figure here.  Repeat as  necessary for each of your figures.}\label{fig:01}% If you don't add the figures in the LaTeX files, please upload them when submitting the article.
+
+%%% Frontiers will add the figures at the end of the provisional pdf automatically %%%
+
+%%% The use of LaTeX coding to draw Diagrams/Figures/Structures should be avoided. They should be external callouts including graphics.
+
+\end{document}
