@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.20)  21 DEC 2013 18:44
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.20)  22 DEC 2013 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -619,19 +619,19 @@ Package: listings 2007/02/22 1.4 (Carsten Heinz)
 (./neuron_depot.aux)
 \openout1 = `neuron_depot.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 72.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 88.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -648,26 +648,27 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \makeMPintoPDFobject=\count149
 \everyMPtoPDFconversion=\toks35
 )
-Package crop Info: requested driver: `' on input line 72.
-Package crop Info: detected driver: `pdftex' on input line 72.
-Package crop Info: using `pdftex' graphics driver on input line 72.
+Package crop Info: requested driver: `' on input line 88.
+Package crop Info: detected driver: `pdftex' on input line 88.
+Package crop Info: using `pdftex' graphics driver on input line 88.
 \c@lstlisting=\count150
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 84.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 100.
+
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 84.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 100.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <15> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 84.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 100.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 84.
-LaTeX Font Info:    Try loading font information for U+msa on input line 84.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 100.
+LaTeX Font Info:    Try loading font information for U+msa on input line 100.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 84.
+LaTeX Font Info:    Try loading font information for U+msb on input line 100.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -675,98 +676,135 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 <./logo1.jpg, id=1, 30.9155pt x 29.3095pt>
 File: ./logo1.jpg Graphic file (type jpg)
  <use ./logo1.jpg>
-Package pdftex.def Info: ./logo1.jpg used on input line 84.
+Package pdftex.def Info: ./logo1.jpg used on input line 100.
 (pdftex.def)             Requested size: 30.0pt x 28.44269pt.
 
-Overfull \hbox (8.53581pt too wide) in paragraph at lines 84--84
+Overfull \hbox (8.53581pt too wide) in paragraph at lines 100--100
 [][] 
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <20> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 84.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 100.
 
-Underfull \hbox (badness 10000) detected at line 84
+Underfull \hbox (badness 10000) detected at line 100
 []
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 121--122
+Underfull \hbox (badness 1762) in paragraph at lines 137--138
 \OT1/phv/b/n/12 use case in the neurosciences, the GinJang project. The main dr
 ivers for our
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 124.
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <13> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 132.
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 140.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <13> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 148.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 156.
 [1
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo1.jpg>]
-Underfull \hbox (badness 1117) in paragraph at lines 158--176
+Underfull \hbox (badness 1117) in paragraph at lines 174--192
 \OT1/ptm/m/n/12 filesystem-based acquisition, munging, analysis and publication
  workflows by leveraging proven
  []
 
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 200.
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <11> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 209.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 225.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 209.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 225.
 
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
 [2]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 214.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11.5> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 243.
- <Figures/workflow.png, id=18, 739.5717pt x 559.63593pt>
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 261.
+ <Figures/workflow.png, id=19, 184.89293pt x 139.93073pt>
 File: Figures/workflow.png Graphic file (type png)
 
 <use Figures/workflow.png>
-Package pdftex.def Info: Figures/workflow.png used on input line 256.
-(pdftex.def)             Requested size: 504.0pt x 381.3757pt.
+Package pdftex.def Info: Figures/workflow.png used on input line 274.
+(pdftex.def)             Requested size: 504.0pt x 381.47334pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 282.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 300.
+
+
+Package natbib Warning: Citation `Minemoto2009' on page 3 undefined on input li
+ne 315.
+
 
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
 [3]
+Package epstopdf Info: Source file: <Figures/workflow_sequence.eps>
+(epstopdf)                    date: 2013-12-22 12:44:12
+(epstopdf)                    size: 151423 bytes
+(epstopdf)             Output file: <Figures/workflow_sequence-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2013-12-22 12:44:17
+(epstopdf)                    size: 50535 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/workflow_sequence-
+eps-converted-to.pdf Figures/workflow_sequence.eps>
+(epstopdf)             \includegraphics on input line 334.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/workflow_sequence-eps-converted-to.pdf, id=24, 521.95pt x 564.1075pt>
+File: Figures/workflow_sequence-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/workflow_sequence-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/workflow_sequence-eps-converted-to.pdf used on
+ input line 334.
+(pdftex.def)             Requested size: 227.62204pt x 246.00452pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
 [4 <./Figures/workflow.png>]
+
+Package natbib Warning: Citation `Evers2005' on page 5 undefined on input line 
+391.
+
+
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
-[5]
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 386.
+[5 <./Figures/workflow_sequence-eps-converted-to.pdf>]
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 432.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 386.
+(Font)              size <5> substituted on input line 432.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 386.
+(Font)              size <5> substituted on input line 432.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 386.
+(Font)              size <5> substituted on input line 432.
 
-<Figures/Metadata_DataUnits.png, id=33, 617.05229pt x 545.72557pt>
+
+Overfull \vbox (2.0245pt too high) has occurred while \output is active []
+
+
+[6] <Figures/Metadata_DataUnits.png, id=40, 154.26308pt x 136.41325pt>
 File: Figures/Metadata_DataUnits.png Graphic file (type png)
 
 <use Figures/Metadata_DataUnits.png>
-Package pdftex.def Info: Figures/Metadata_DataUnits.png used on input line 418.
+Package pdftex.def Info: Figures/Metadata_DataUnits.png used on input line 464.
 
-(pdftex.def)             Requested size: 504.0pt x 445.74918pt.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 435.
+(pdftex.def)             Requested size: 504.0pt x 445.71692pt.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 481.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
@@ -775,103 +813,53 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
-[6] <Figures/ContextTree.png, id=38, 773.96352pt x 538.07423pt>
+[7 <./Figures/Metadata_DataUnits.png>]
+<Figures/ContextTree.png, id=47, 193.49088pt x 134.51855pt>
 File: Figures/ContextTree.png Graphic file (type png)
 
 <use Figures/ContextTree.png>
-Package pdftex.def Info: Figures/ContextTree.png used on input line 478.
-(pdftex.def)             Requested size: 241.84842pt x 168.13135pt.
+Package pdftex.def Info: Figures/ContextTree.png used on input line 526.
+(pdftex.def)             Requested size: 241.84842pt x 168.14159pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (2.0245pt too high) has occurred while \output is active []
-
-
-[7 <./Figures/Metadata_DataUnits.png>]
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
 [8 <./Figures/ContextTree.png>]
-Underfull \hbox (badness 2547) in paragraph at lines 557--570
+Underfull \hbox (badness 2547) in paragraph at lines 605--618
  \OT1/ptm/m/it/12 4.2.2 Cloud-Based Data Flow[] \OT1/ptm/m/n/12 NeuronDepot's m
 echanism for data transmission is based on
  []
 
-<Figures/cloud_concept.png, id=50, 759.10602pt x 498.12097pt>
+<Figures/cloud_concept.png, id=53, 189.79909pt x 124.57541pt>
 File: Figures/cloud_concept.png Graphic file (type png)
 
 <use Figures/cloud_concept.png>
-Package pdftex.def Info: Figures/cloud_concept.png used on input line 573.
-(pdftex.def)             Requested size: 504.0pt x 330.72183pt.
-
-<Figures/architecture.png, id=51, 402.5469pt x 495.46548pt>
-File: Figures/architecture.png Graphic file (type png)
-
-<use Figures/architecture.png>
-Package pdftex.def Info: Figures/architecture.png used on input line 660.
-(pdftex.def)             Requested size: 241.84842pt x 297.68227pt.
+Package pdftex.def Info: Figures/cloud_concept.png used on input line 621.
+(pdftex.def)             Requested size: 504.0pt x 330.83228pt.
 
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
 [9]
-
-Package natbib Warning: Citation `Driscoll1989' on page 10 undefined on input l
-ine 688.
-
-
-Package natbib Warning: Citation `Clojure' on page 10 undefined on input line 6
-98.
-
-
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
 [10 <./Figures/cloud_concept.png>]
+<Figures/architecture.png, id=61, 100.63673pt x 123.89143pt>
+File: Figures/architecture.png Graphic file (type png)
 
-Package natbib Warning: Citation `MongoDB' on page 11 undefined on input line 7
-16.
-
-
-Package natbib Warning: Citation `CouchDB' on page 11 undefined on input line 7
-17.
-
-
-Package natbib Warning: Citation `AmazonS3' on page 11 undefined on input line 
-723.
-
-
-Package natbib Warning: Citation `RiakCS' on page 11 undefined on input line 72
-5.
-
-
-Package natbib Warning: Citation `OpenstackStorage' on page 11 undefined on inp
-ut line 725.
-
+<use Figures/architecture.png>
+Package pdftex.def Info: Figures/architecture.png used on input line 707.
+(pdftex.def)             Requested size: 241.84842pt x 297.76703pt.
 
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
 [11 <./Figures/architecture.png>]
-
-Package natbib Warning: Citation `Koester2012' on page 12 undefined on input li
-ne 738.
-
-
-LaTeX Warning: Reference `FileSystemProjectionLayer' on page 12 undefined on in
-put line 748.
-
-
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
 [12]
-
-Package natbib Warning: Citation `Borgmann2012' on page 13 undefined on input l
-ine 860.
-
-
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
@@ -879,11 +867,21 @@ Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
-[14] (./neuron_depot.bbl)
+[14] (./neuron_depot.bbl
 Overfull \vbox (2.0245pt too high) has occurred while \output is active []
 
 
 [15]
+Underfull \hbox (badness 2334) in paragraph at lines 91--94
+[]\OT1/ptm/m/n/12 K[]oster, J. and Rahmann, S. (2012), Snakemake|a scalable bio
+informatics workflow engine,
+ []
+
+)
+Overfull \vbox (2.0245pt too high) has occurred while \output is active []
+
+
+[16]
 
 Package natbib Warning: There were undefined citations.
 
@@ -892,18 +890,15 @@ Package natbib Warning: There were undefined citations.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 6949 strings out of 493485
- 93448 string characters out of 3143526
- 189167 words of memory out of 3000000
- 10057 multiletter control sequences out of 15000+200000
- 48339 words of font info for 100 fonts, out of 3000000 for 9000
+ 7007 strings out of 493485
+ 94592 string characters out of 3143526
+ 191361 words of memory out of 3000000
+ 10112 multiletter control sequences out of 15000+200000
+ 49145 words of font info for 102 fonts, out of 3000000 for 9000
  961 hyphenation exceptions out of 8191
- 49i,8n,37p,940b,1078s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,9n,37p,940b,1078s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/f
@@ -917,10 +912,10 @@ ve/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
 mr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on neuron_depot.pdf (15 pages, 13065926 bytes).
+Output written on neuron_depot.pdf (16 pages, 3418801 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
+ 128 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

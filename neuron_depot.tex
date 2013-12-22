@@ -21,13 +21,29 @@
   basicstyle=\ttfamily\footnotesize,
 }
 
-% PR: new commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PR start ******************************
+
+% double spacing for editorial work
+%\usepackage{setspace}
+%\doublespacing
+
+% new commands
 \newcommand{\pr}[1]{[\textcolor{YellowOrange}{PR: #1}]}
 
-% PR: remarks:
+% remarks:
+% Images:
 % Image size for figures: 180 mm width with 900 - 1200 dpi.
 % 180 mm and 1200 dpi ==> 8504 pixel
 % 85 mm and 1200 dpi ==> 4016
+%
+% maybe better: safe as pdf and then use http://tex.stackexchange.com/questions/20883/how-to-convert-pdf-to-eps
+% to convert to eps (saving it from inkscape directly as eps doesn't work as
+% the result is pixeled)
+
+
+% PR stop ******************************
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % Leave a blank line between paragraphs in stead of using \\
@@ -102,8 +118,8 @@ $^{6}$School of Human Science and Environment, University of Hyogo, Japan
 
 \section{
 We report here (1) a novel approach to data sharing between collaborating
-scientists that brings together filesystem tools and the cloud (2) a pilot
-open-source implementation, called NeuronDepot and (3) an exemplary application
+scientists that brings together filesystem tools and the cloud, (2) a pilot
+open-source implementation, called NeuronDepot, and (3) an exemplary application
 of the software to a demanding use case in the neurosciences, the GinJang
 project. The main drivers for our approach are to provide collaborations with a
 transparent, automated data flow and shield scientists from having to learn new
@@ -181,10 +197,10 @@ working environments the costs of data sharing in a collaboration are brought
 down to a minimum while the accessibility of research assets is future-proofed.
 
 Compared to other data-intensive research disciplines in life sciences such as
-genomics and proteomics [Gelbart et al. 1997, Stoesser et al., 1997, De
-Schutter 2008], neurosciences lag behind regarding the use of databases for the
-organization and exchange of data. Only recently attempts have started to
-integrate neuroscience databases [Amari et al. 2002, Gupta et al. 2008], and so
+genomics and proteomics \citep{Gelbart1997, Stoesser1997, DeSchutter2008},
+neurosciences lag behind regarding the use of databases for the organization
+and exchange of data. Only recently attempts have started to
+integrate neuroscience databases \citep{Amari2002, Gupta2008}, and so
 far the focus has been mostly placed on anatomical data. In the domain of
 neurophysiology, one of the first public databases for electrophysiological
 data was the neurodatabase.org project (neurodatabase.org). In this project, an
@@ -220,6 +236,8 @@ Recently, the International Neuroinformatics Coordinating Facility established
 the INCF Dataspace (incf.org/dataspace), a cloud based file system to federate
 all kinds of neuroscience data.
 
+\pr{Missing: initiatives about morphological and imaging data}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Scope of the NeuronDepot approach
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -227,7 +245,7 @@ all kinds of neuroscience data.
 \section{Scope of the NeuronDepot approach}
 
 NeuronDepot answers these needs while remaining domain agnostic, i.e. in
-contrast of some of the infrastructure solutions presented in Section [XX] it
+contrast of some of the infrastructure solutions presented above, it
 does not focus on anatomy or electrophysiology but leaves the specifics of each
 data kind to the well established working environments of the participating
 members. NeuronDepot supports the scientist by providing an infrastructure that
@@ -284,17 +302,17 @@ simulation results.
 \end{figure}
 The GinJang project uses the honeybee brain as a model for establishing the
 NeuronDepot. Honeybee communicates the direction and distance to food sources
-with hive-mates by waggle dance \pr{REF}(von Frisch, 1967). The hive-mates detect and
+with hive-mates by waggle dance \citep{Frisch1967}. The hive-mates detect and
 process airborne vibration caused by the bee's wingbeat during the waggle
 dance, which consists of vibration pulses with a highly specific temporal
 pattern. We have already identified several critical interneurons for
-processing the airborne vibration \pr{REF}(Ai et al., 2007, 2009; Ai, 2010, Ai and
-Itoh, 2012; Ai and Hagio, 2013), however the neural processing of these
+processing the airborne vibration \citep{Ai2007, Ai2009, Ai2010, Ai2012,
+Ai2013}, however the neural processing of these
 vibration signals has rarely been studied, and the types and roles of the
 neurons involved, their circuitry and its development are largely unknown. 
 
-Members of the GinJang project also developed a program \pr{REF}(SIGEN, Minemoto et
-al., 2009)  that automatically extracts and segments the morphology of the
+Members of the GinJang project also developed a program (SIGEN,
+\citep{Minemoto2009} that automatically extracts and segments the morphology of the
 critical interneurons in the vibration processing. GinJang project will clarify
 the morphological characteristics of the vibration-processing neurons and their
 morphological development of the neuron depending on the age and on the
@@ -311,9 +329,38 @@ Finally, morphological analyses, simulations, and further analyses  are done at
 Ludwig-Maximilians-Universität München (LMU) in Germany.
 
 
+\begin{figure}
+\centering
+\includegraphics[width=8cm]{Figures/workflow_sequence.eps}
+\caption[Sequence of GinJang Workflow]{
+    \emph{Sequence Diagram of the GinJang workflow (morphological
+    scope)}\pr{This figure will appear in one column within the final layout}
+
+    The GinJang workflow starts at the Fukuoka University with two processing
+    stages (indicated by solid arrows), the experimental data collection and the
+    imaging processing stage. Anatomical image stacks are transferred (dashed
+    arrow) to University of Hyogo where they are segmented. Segmented neurons
+    are transferred to the LMU and also back to Fukuoka University where they
+    are registered to the honeybee standard brain.  Unregistered segmentation
+    and registered segmentation are used for simulations and analysis at the
+    LMU. Using analysis results, scientists in Fukuoka can tweak existing
+    experiments or design new ones.
+}
+\label{fig:workflow_sequence}
+\end{figure}
+
+
 \subsubsection{Experiment}
 
-The vibration-sensitive neurons in the honeybee auditory system  [Ai et.al 2009]  are electrophysiologically and anatomically characterized at Fukuoka University. Using sharp electrodes, voltage traces are recorded from interneurons in response to several sensory input protocols [Ai et.al 2009; Ai and Itoh, 2012; Kai et al., 2013]. Then the neuron is filled with a dye and imaged at a different setup using confocal microscopy to generate anatomical image stacks [Ai, 2010, Ai and Hagio, 2013]. Thus, every experiment generates three kinds of data-metadata bundles:
+The vibration-sensitive neurons in the honeybee auditory system
+\citep{Ai2009}
+are electrophysiologically and anatomically characterized at Fukuoka
+University. Using sharp electrodes, voltage traces are recorded from
+interneurons in response to several sensory input protocols \citep{Ai2009,
+Ai2012, Kai2013}. Then the neuron is filled with a dye and
+imaged at a different setup using confocal microscopy to generate anatomical
+image stacks \citep{Ai2010, Ai2013}. Thus, every experiment generates
+three kinds of data-metadata bundles:
 
 \begin{enumerate}
 \item Electrophysiological data. E.g.: voltage and current traces
@@ -324,8 +371,7 @@ The vibration-sensitive neurons in the honeybee auditory system  [Ai et.al 2009]
 \subsubsection{Segmentation}
 
 Image stacks are transferred to the University of Hyogo, Japan. Here, using
-automated image analysis software SIGEN [Yamasaki et al., 2006; Minemoto et
-al., 2009,] the 3D structure of the neuron is extracted and stored using the
+automated image analysis software SIGEN \citep{Yamasaki2006, Minemoto} the 3D structure of the neuron is extracted and stored using the
 SWC file format. At this stage two kinds of data are generated:
 
 \begin{enumerate}
@@ -341,11 +387,11 @@ University for registration into the Honeybee Standard Brain using various
 transformations. We use the honeybee standard brain (HSB) to analyze the
 spatial relationships among morphologically and physiologically characterized
 vibration-sensitive neurons. The neuronal profiles of stained interneurons,
-obtained from different preparations, are segmented  using Amira 4.1 (Evers et
-al., 2005). Subsequently, the neuropilar outlines are traced manually and
+obtained from different preparations, are segmented  using Amira 4.1
+\citep{Evers2005}. Subsequently, the neuropilar outlines are traced manually and
 segmented with the Amira 4.1 label field editor. These neuropilar label fields
 are used to register the segmented neuron of each preparation into the HSB
-following the method described by Brandt et al. (2005).
+following the method described by \citet{Brandt2005}.
 
 
 \subsubsection{Analysis}
@@ -457,6 +503,8 @@ software. Definitions for the emphasized terms are provided next.
 
 \subsection{Definitions}
 
+In the next parts, we will refere to the following definitions:
+
 \textbf{Data unit:} A data unit (Fig. 3, bottom left and  bottom right) is a
 logical grouping of one (trivial case) or multiple files which are generated by
 a single process. This process can be an experiment, an algorithmic data
@@ -494,15 +542,15 @@ attributes corresponds to the hierarchical levels in the file system.
     \texttt{SIGEN\_PARAMETERS}
     serve for grouping.
     
-    Example of Context Path ($\alpha$) pointing to a data unit containing a
-    segmentation:
+    \emph{Example of Context Path ($\alpha$) pointing to a data unit containing a
+    segmentation:}
     \texttt{/forager/left\_DL/HB130427/D20V05C01S01/morphology.swc} Another
     Context Tree of NeuronDepot arranges project data for our imaging
     processing stage.  Here, the project data is reduced to image stacks.
     Metadata attributes \texttt{HONEYBEE\_ID} and \texttt{REGION} serve for
     grouping.
 
-    Example of Context Path ($\beta$) pointing to the same data unit: \texttt{/HB130427/left-DL/*.tiff}
+    \emph{Example of Context Path ($\beta$) pointing to the same data unit:} \texttt{/HB130427/left-DL/*.tiff}
 }
 \label{fig:context_tree} 
 \end{figure}
@@ -638,12 +686,11 @@ elastic scaling, elimination of up-front investment, reduction of operational
 expenses, and establishing a pay-per- use business model for information
 technology and computing services. There are different models of cloud
 computing that are offered today as service, such as software as a service
-(SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS)
-[REF].
+(SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS).
 
 \textbf{Distribution of processes} \texttt{  } In order to make the data
 management and data processing independent The use of existing software tools
-helps to reduce the development time and effort.  \emph{GWDG Cloud Share}, based in
+helps to reduce the development time and effort. \emph{GWDG Cloud Share}, based in
 Germany, computational centre of MPG; \emph{naive synchronization} can lead to full
 hard drives – requires controlled data synchronization
 
@@ -671,7 +718,7 @@ The architecture underlying NeuronDepot consists of individual layers (Fig. 6). 
 \end{figure}
 
 
-\subsection{Virtual Filesystem Projection Layer}
+\subsection{Virtual Filesystem Projection Layer}\label{sec:projection_layer}
 The filesystem projection layer projects the data items based on metadata to
 directories and files. The hierarchy is stored in project metadata storage, the
 data items in the storage backend.
@@ -695,9 +742,9 @@ the transaction wouldn’t be able to commit. In this case the workflow could be
 rerun based on the latest snapshot, or a new branch would be created. A
 conceptual similar approach is transactional memory. Transactional memory
 provides programming abstractions which makes it easier to develop
-multithreaded applications~\cite{Clojure}. In NeuronDepot we want to use a
-similar approach to provide a consistent view on the data items while a
-workflow is executed. The storage backend uses a SHA-1 hash as unique
+multithreaded applications (\url{http://clojure.org/refs}). In NeuronDepot we
+want to use a similar approach to provide a consistent view on the data items
+while a workflow is executed. The storage backend uses a SHA-1 hash as unique
 identifier for the data item in the project bucket. Calculating a SHA-1 hash of
 11.5GB file on a commodity laptop with a SSD took only about 41 seconds, hence
 it is feasible to take a SHA-1 hash as the unique identifier.
@@ -710,24 +757,28 @@ be checked by calculating the hash and comparing it.
 
 \subsection{Persistence Layer}
 
+The persistence layer consists of the following two components:
+
 \textbf{Project Metadata} \texttt{  } Within each specific project database
 additional metadata is stored. This can be metadata which was extracted by a
 computational workflow or manually entered data. Databases which would support
-this kind of scenario would be MongoDB~\cite{ MongoDB} or
-CouchDB~\cite{CouchDB}.
+this kind of scenario would be MongoDB (\url{http://www.mongodb.org/}) or
+CouchDB (\url{http://couchdb.apache.org/}).
 
 \textbf{Storage Backend} \texttt{  } The responsibility of the storage backend
 is to consistently store data items and provide abstractions for the file
 system projection layer. The abstractions provided are similar to a key value
-store. The Amazon S3 API distinguishes between buckets and objects~\cite{
-AmazonS3}. Objects, which are data items, are put into buckets. Each bucket has
-a flat namespace. There are multiple open source alternative
-implementations~\cite{RiakCS, OpenstackStorage}. For the storage backend of
-NeuronDepot we suggest using a backend with a similar API. The hierarchy of the
-backend filesystem is stored within the project specific metadata and linked
-through a key. A key is created based on the SHA-1 hash of the data item
-itself. With that the content of the file can be further checked for
-corruptions.
+store. The Amazon S3 API distinguishes between buckets and objects
+(\url{http://aws.amazon.com/documentation/s3/}). Objects, which are data items,
+are put into buckets. Each bucket has a flat namespace. There are multiple open
+source alternative implementations like RiakCS
+(\url{https://github.com/basho/riak\_cs}) or OpenStack Storage
+(\url{http://www.openstack.org/software/openstack-storage/}). For the storage
+backend of NeuronDepot we suggest using a backend with a similar API. The
+hierarchy of the backend filesystem is stored within the project specific
+metadata and linked through a key. A key is created based on the SHA-1 hash of
+the data item itself. With that the content of the file can be further checked
+for corruptions.
 
 
 \subsection{Business Logic Layer}
@@ -745,7 +796,7 @@ application. The synchronization of the files between the researchers is done
 asynchronously in the background with cloud synchronization clients, see (Fig.
 6). Hence the execution of computational workflows  has to be deterministic
 despite of asynchronous changes of files. This requirement is fulfilled by
-persistent data structures, see ~\ref{FileSystemProjectionLayer}.
+persistent data structures (see ~\ref{sec:projection_layer}).
 
 \subsection{Cloud Storage Synchronization Clients}
 
@@ -753,7 +804,6 @@ Clients like Dropbox, Google Drive or Powerfolder are connected to the virtual
 filesystem projection layer. When files are added with one client, the files
 are persisted in the storage backend. When new files are added, removed or
 changed, project specific workflows can be triggered.
-
 
 \subsection{Graphical User Interface Layer}
 
@@ -903,7 +953,7 @@ successfully deployed on a large-scale collaboration, the GinJang project.
 
 The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
 
-\section*{Author Contributions}
+% \section*{Author Contributions}
 %When determining authorship the following criteria should be observed:
 %•	Substantial contributions to the conception or design of the work; or the acquisition, analysis, or interpretation of data for the work; AND
 %•	Drafting the work or revising it critically for important intellectual content; AND
@@ -911,19 +961,22 @@ The authors declare that the research was conducted in the absence of any commer
 %•	Agreement to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved.
 %Contributors who meet fewer than all 4 of the above criteria for authorship should not be listed as authors, but they should be acknowledged. (http://www.icmje.org/roles_a.html)
 
-The statement about the authors and contributors can be up to several sentences long, describing the tasks of individual authors referred to by their initials and should be included at the end of the manuscript before the References section.
-
+% The statement about the authors and contributors can be up to several sentences long, describing the tasks of individual authors referred to by their initials and should be included at the end of the manuscript before the References section.
 
 \section*{Acknowledgement}
-Text Text Text Text Text Text  Text Text Text Text Text Text Text Text  Text Text Text Text Text Text Text Text Text  Text Text Text.
+\begin{itemize}
+\item Supported by the Japan Science and Technology Agency (JST) and the
+      Federal Ministry of Education and Research (BMBF, grant 01GQ1116)
+\item HORN: Hyogo Overseas Research Network (HORN) Scholarship
+\end{itemize}
 
-\paragraph{Funding\textcolon} Text Text Text Text  Text Text.
+%\paragraph{Funding\textcolon}
 
 \bibliographystyle{frontiersinSCNS&ENG} % for Science and Engineering articles
 %\bibliographystyle{frontiersinMED&FPHY} % for Medicine and Physics articles
 \bibliography{neuron_depot}
 
-\section*{Figures}
+% \section*{Figures}
 
 %%% Use this if adding the figures directly in the mansucript, if so, please remember to also upload the files when submitting your article
 %%% There is no need for adding the file termination, as long as you indicate where the file is saved. In the examples below the files (logo1.jpg and logo2.eps) are in the Frontiers LaTeX folder

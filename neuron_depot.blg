@@ -3,45 +3,82 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: neuron_depot.aux
 The style file: frontiersinSCNS&ENG.bst
 Database file #1: neuron_depot.bib
+Warning--string name "march" is undefined
+--line 718 of file neuron_depot.bib
+Warning--I didn't find a database entry for "Minemoto2009"
+Warning--I didn't find a database entry for "Evers2005"
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 2901 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 2901 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 2901 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 2901 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 2901 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 2901 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 2901 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 2901 of file frontiersinSCNS&ENG.bst
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 1 entry,
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 3077 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 3077 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 3077 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 3077 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 3077 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 3077 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 3077 of file frontiersinSCNS&ENG.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz, Macel Richter, Ursula Viebeg, Sven Vowe" for entry Borgmann2012
+while executing---line 3077 of file frontiersinSCNS&ENG.bst
+You've used 19 entries,
             3038 wiz_defined-function locations,
-            614 strings with 4791 characters,
-and the built_in function-call counts, 667 in all, are:
-= -- 47
-> -- 34
-< -- 0
-+ -- 16
-- -- 10
-* -- 56
-:= -- 98
+            755 strings with 9610 characters,
+and the built_in function-call counts, 13715 in all, are:
+= -- 1044
+> -- 831
+< -- 7
++ -- 412
+- -- 226
+* -- 1096
+:= -- 1907
 add.period$ -- 0
-call.type$ -- 1
-change.case$ -- 8
-chr.to.int$ -- 2
-cite$ -- 1
-duplicate$ -- 49
-empty$ -- 48
-format.name$ -- 12
-if$ -- 127
+call.type$ -- 19
+change.case$ -- 170
+chr.to.int$ -- 20
+cite$ -- 19
+duplicate$ -- 956
+empty$ -- 959
+format.name$ -- 280
+if$ -- 2735
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 10
-newline$ -- 11
-num.names$ -- 4
-pop$ -- 24
+missing$ -- 197
+newline$ -- 65
+num.names$ -- 76
+pop$ -- 446
 preamble$ -- 1
-purify$ -- 7
+purify$ -- 151
 quote$ -- 0
-skip$ -- 25
+skip$ -- 612
 stack$ -- 0
-substring$ -- 17
-swap$ -- 25
+substring$ -- 499
+swap$ -- 512
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 9
+type$ -- 171
 warning$ -- 0
-while$ -- 4
+while$ -- 82
 width$ -- 0
-write$ -- 19
+write$ -- 220
+(There were 16 error messages)
