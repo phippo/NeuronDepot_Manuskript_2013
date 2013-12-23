@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -39,6 +39,24 @@ Amari, S.-I., Beltrame, F., Bjaalie, J.~G., Dalkara, T., {De Schutter}, E.,
   databases and tools towards integrative neuroscience.}, \emph{Journal of
   integrative neuroscience}, 1, 2, 117--28
 
+\bibitem[{\textbf{Ascoli et~al.}(2007)\textbf{Ascoli, Donohue, and
+  Halavi}}]{Ascoli2007}
+Ascoli, G.~A., Donohue, D.~E., and Halavi, M. (2007), {NeuroMorpho.Org: a
+  central resource for neuronal morphologies.}, \emph{The Journal of
+  neuroscience : the official journal of the Society for Neuroscience}, 27, 35,
+  9247--51, \doi{10.1523/JNEUROSCI.2055-07.2007}
+
+\bibitem[{\textbf{Azodolmolky et~al.}(2013)\textbf{Azodolmolky, Wieder, and
+  Yahyapour}}]{Azodolmolky2013}
+Azodolmolky, S., Wieder, P., and Yahyapour, R. (2013), {Cloud computing
+  networking: challenges and opportunities for innovations}, \emph{IEEE
+  Communications Magazine}, 51, 7, 54--62, \doi{10.1109/MCOM.2013.6553678}
+
+\bibitem[{\textbf{Borgmann et~al.}(2012)\textbf{Borgmann, Hahn, Herfert, Kunz,
+  Richter, Viebeg et~al.}}]{Borgmann2012}
+Borgmann, M., Hahn, T., Herfert, M., Kunz, T., Richter, M., Viebeg, U., et~al.
+  (2012), On the security of cloud storage services, \emph{Fraunhofer-Verlag}
+
 \bibitem[{\textbf{Brandt et~al.}(2005)\textbf{Brandt, Rohlfing, Rybak,
   Krofczik, Maye, Westerhoff et~al.}}]{Brandt2005}
 Brandt, R., Rohlfing, T., Rybak, J., Krofczik, S., Maye, A., Westerhoff, M.,
@@ -56,6 +74,13 @@ Brandt, R., Rohlfing, T., Rybak, J., Krofczik, S., Maye, A., Westerhoff, M.,
 Driscoll, J.~R., Sarnak, N., Sleator, D.~D., and Tarjan, R.~E. (1989), Making
   data structures persistent, \emph{J. Comput. Syst. Sci.}, 38, 1, 86--124,
   \doi{10.1016/0022-0000(89)90034-2}
+
+\bibitem[{\textbf{Evers et~al.}(2005)\textbf{Evers, Schmitt, Sibila, and
+  Duch}}]{Evers2005}
+Evers, J., Schmitt, S., Sibila, M., and Duch, C. (2005), {Progress in
+  functional neuroanatomy: precise automatic geometric reconstruction of
+  neuronal morphology from confocal image stacks}, \emph{Journal of
+  Neurophysiology}, 93, 4, 2331, \doi{10.1152/jn.00761.2004.}
 
 \bibitem[{\textbf{Frisch}(1967)}]{Frisch1967}
 Frisch, K. (1967), {The tail-wagging dance as a means of communication when
@@ -92,15 +117,14 @@ Köster, J. and Rahmann, S. (2012), Snakemake—a scalable bioinformatics
   workflow engine, \emph{Bioinformatics}, 28, 19, 2520--2522,
   \doi{10.1093/bioinformatics/bts480}
 
+\bibitem[{\textbf{Mell and Grance}(2011)}]{Mell2011}
+Mell, P.~M. and Grance, T. (2011), {The NIST Definition of Cloud Computing}
+
 \bibitem[{\textbf{Minemoto et~al.}(2009)\textbf{Minemoto, Saitoh, Ikeno,
   Isokawa, Kamiura, Matsui et~al.}}]{Minemoto}
 Minemoto, T., Saitoh, A., Ikeno, H., Isokawa, T., Kamiura, N., Matsui, N.,
   et~al. (2009), {SIGEN: System for Reconstructing Three-Dimensional Structure
   of Insect Neurons}, \emph{Proc. Asia Sim. Conf., JSST2009, CDROM.}, 1--6
-
-\bibitem[{\textbf{Moritz~Borgmann}(2012)}]{Borgmann2012}
-Moritz~Borgmann, M. H. T. K. M. R. U. V. S.~V., Tobias~Hahn (2012), On the
-  security of cloud storage services, \emph{Fraunhofer-Verlag}
 
 \bibitem[{\textbf{Stoesser et~al.}(1997)\textbf{Stoesser, Sterk, Tuli, Stoehr,
   and Cameron}}]{Stoesser1997}
