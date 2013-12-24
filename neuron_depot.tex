@@ -209,12 +209,12 @@ neurophysiological data were developed. The data, typically obtained from
 publications is made available with extensive metadata and provided in a
 standard format developed in the project.
 
-The CRCNS site (\url{http://crcns.org}) hosts electrophysiological data that have been
-specifically selected by contributing labs for the purpose of making the data
-available to the public. Typically, these data are from studies that have been
-published and they may be used for further investigations after they have
-served their primary purpose. Data format and documentation are different for
-each dataset.
+The CRCNS site (\url{http://crcns.org}) hosts electrophysiological data that
+have been specifically selected by contributing labs for the purpose of making
+the data available to the public. Typically, these data are from studies that
+have been published and they may be used for further investigations after they
+have served their primary purpose. Data format and documentation are different
+for each dataset.
 
 The CARMEN project (\url{http://www.carmen.org.uk}) provides a platform for data analysis
 and data exchange where the owner of the data can keep the data private, or can
@@ -240,6 +240,11 @@ NeuroMorpho.Org is a centrally curated inventory of digitally reconstructed
 neurons associated with peer-reviewed publications
 (\url{http://neuromorpho.org/}). Its goal is to provide dense coverage of
 available reconstruction data for the neuroscience community \citep{Ascoli2007}
+
+One of the first databases integrating results from various fields like
+morphology, physiology, and immunohistochemistry is the Bombyx Neuron Database
+for assembling and sharing experimental and analytical data \citep{Kazawa2008}.
+Its integrative approach inspired also the development of NeuronDepot.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Scope of the NeuronDepot approach
@@ -315,11 +320,11 @@ vibration signals has rarely been studied, and the types and roles of the
 neurons involved, their circuitry and its development are largely unknown. 
 
 Members of the GinJang project also developed a program (SIGEN, see
-\citep{Minemoto}) that automatically extracts and segments the morphology of the
-critical interneurons in the vibration processing. GinJang project will clarify
-the morphological characteristics of the vibration-processing neurons and their
-morphological development of the neuron depending on the age and on the
-experiences of dance communication.  
+\citep{Minemoto}) that automatically extracts and segments the morphology of
+the critical interneurons in the vibration processing. GinJang project will
+clarify the morphological characteristics of the vibration-processing neurons
+and their morphological development of the neuron depending on the age and on
+the experiences of dance communication.  
 
 We describe next the workflow of an extract of the GinJang project, a
 sophisticated use-case representative for NeuronDepot
@@ -328,12 +333,11 @@ of the GinJang project is at Fukuoka University where electrophysiological
 measurements (Fig.~\ref{fig:workflow}A), electrophysiological analyses
 (Fig.~\ref{fig:workflow}D), and imaging (Fig.~\ref{fig:workflow}B) are
 performed. The resulting image stacks are used at the University of Hyogo for
-neuronal segmentation (Fig.~\ref{fig:workflow}C). These 3D neuronal segmentations are then
-normalized by registering them into the Honeybee standard brain back at Fukuoka
-University. Finally, morphological analyses, simulations, and further analyses
-are done at Ludwig-Maximilians-Universität München (LMU) in Germany
-(Fig.~\ref{fig:workflow}E).
-
+neuronal segmentation (Fig.~\ref{fig:workflow}C). These 3D neuronal
+segmentations are then normalized by registering them into the Honeybee
+standard brain back at Fukuoka University. Finally, morphological analyses,
+simulations, and further analyses are done at Ludwig-Maximilians-Universität
+München (LMU) in Germany (Fig.~\ref{fig:workflow}E).
 
 \begin{figure}
 \centering
@@ -718,7 +722,7 @@ reduce the development time and effort.
     (\emph{right}) which are connected to the cloud services.
     (B) The business logic (\emph{left}) encodes the NeuronDepot logic rules
     that determin how data can be created, red, updated, and deleted.
-    Moreover, when new data items are added, deleted or modified, project
+    Moreover, when new data items are added, deleted, or modified, project
     specific workflows can be triggered. The workflows are purely computational
     and are composed of multiple tasks and can be specified for each processing
     stage (\emph{small rectangle}). Because the workflows are executed
@@ -737,14 +741,21 @@ reduce the development time and effort.
 \end{figure}
 
 \subsection{Graphical User Interface}
-The architecture underlying NeuronDepot consists of individual layers (Fig. 6). Users can access NeuronDepot via a web application or through cloud storage synchronization clients.
+The architecture underlying NeuronDepot consists of individual layers (Fig. 6).
+Users can access NeuronDepot via a web application or through cloud storage
+synchronization clients. NeuronDepot distiguishes two kinds of users:
+registered project members which can manage the entire project data and
+administrators that with global permissions including user management. As
+NeuronDepot uses OpenIDs for authentification, user management treats mainly
+authorization. A third kind of user "anonymous" will be realized as soon as
+project data is published and public available.
 
 The graphical user interface (GUI) consists of two parts: a web application
 (Fig.~\ref{fig:architecture}A, left) and local applications
 (Fig.~\ref{fig:architecture}, right). The web application provides forms for
-assigning data, enter metadata, and annotating data with metadata. We used
-the micro web framework Python-Flask (\url{http://flask.pocoo.org/}) for rapid
-development.
+assigning data, enter metadata, annotating data with metadata, and deleting
+data units and metadata. We used the micro web framework Python-Flask
+(\url{http://flask.pocoo.org/}) for rapid development.
 
 The upload and download processes are handled by cloud services incorporated by
 our filesystem projection layer (see below). Here, scientists can use
@@ -761,7 +772,7 @@ projection layer.
 The business logic (Fig.~\ref{fig:architecture}B, left) encodes the NeuronDepot
 logic rules that determin how data can be created, red, updated, and deleted.
 Moreover, when new data items are added, deleted or modified, project specific
-workflows can be triggered.  The workflows are purely computational and are
+workflows can be triggered. The workflows are purely computational and are
 composed of multiple tasks. Because the workflows are executed asynchronously,
 a consistent view of the storage backend is needed. We therefore propose a
 Virtual Filesystem Projection layer (Fig.~\ref{fig:architecture}B, right) which
