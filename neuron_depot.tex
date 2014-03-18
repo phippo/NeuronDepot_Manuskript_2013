@@ -91,7 +91,7 @@ $^{6}$School of Human Science and Environment, University of Hyogo, Japan
 
 \title[NeuronDepot – Keeping your colleagues in sync]{NeuronDepot – Keeping
 your colleagues in sync by combining modern cloud storage services, the local
-file system, and plain web apps}
+file system, and simple web apps}
 \author[\firstAuthorLast ]{\Authors}
 \address{}
 \correspondance{}
@@ -191,15 +191,21 @@ applications. In this way NeuronDepot exploits the existing substantial
 investment in development, acquisition, and training in local applications with
 their mature and rich interfaces and local access to data. We illustrate the
 approach with a NeuronDepot deployment tailored to the specific needs of the
-GinJang project (\url{http://projects.g-node.org/ginjang/}), a complex use case that
-combines data from electrophysiological recordings, imaging, morphological
+GinJang project (\url{http://projects.g-node.org/ginjang/}), a complex use case
+that combines data from electrophysiological recordings, imaging, morphological
 reconstructions, and simulations.
 
-We intend for our approach to serve as an example of providing growing services
-in emergent scientific projects. We adopt methods from service engineering
-shifting the focus from the development of traditional software products to the
-development of inovative service products \citep{truex_growing_1999,
-bennett_service-based_2000, bullinger_service_2003}. By offering new
+NeuronDepot is designed to be a service and not to be a product. As opposed to
+a product, a service is one in which its functionalities are set up to meet a
+specific set of requirements at a point in time \citep{truex_growing_1999,
+bennett_service-based_2000, bullinger_service_2003}. Therefore, the specific
+form of NeuronDepot changes as the project progresses and its requirements
+continually evolve. Moreover, NeuronDepot is composed of other, already
+existing service-modules which are configured to meet the current requirements.
+This is an distiguishing feature of a service when compared to a product. While
+building up NeuronDepot from it’s sub services, we make sure that NeuronDepot
+stays functional even when it’s subservices develop with time. Also, these
+developments can be utilized in evolving NeuronDepot. By offering new
 functionality in a way that is compatible with existing services, tools,
 training, and working environments, the costs of data sharing in a
 collaboration are brought down to a minimum while the accessibility of research
@@ -712,14 +718,14 @@ reduce the development time and effort.
 \begin{figure}
 \centering
 \includegraphics[width=85mm]{Figures/architecture}
-\caption[System Architecture]{
-    \emph{System architecture}
+\caption[Components of NeuronDepot]{
+    \emph{Schemtic representation of the different components of NeuronDepot}
     %\pr{This figure will appear in one column within the final layout}
     
     (A) The graphical user interface  consists of two parts: a web application
     and local applications. The web application (\emph{left}) provides forms
     for assigning data, enter metadata, and annotating data with metadata. The
-    upload and download processes are handled by cloud services incorporated by
+    upload and download processes are handled by GWDG Cloud Share incorporated by
     our filesystem projection layer (see below). Here, scientists can use
     established tools like Windows Explorer, Mac Finder, Linux Nautilus, or
     other file managers to copy files for upload in dedicated folders
@@ -727,14 +733,11 @@ reduce the development time and effort.
     (B) The business logic (\emph{left}) encodes the NeuronDepot logic rules
     that determin how data can be created, red, updated, and deleted.
     Moreover, when new data items are added, deleted, or modified, project-
-    specific workflows can be triggered. The workflows are purely computational
-    and are composed of multiple tasks and can be specified for each processing
-    stage (\emph{small rectangle}). Because the workflows are executed
-    asynchronously, a consistent view of the storage backend is needed. A
-    Virtual Filesystem Projection layer (right) maps data items and directories
-    to cloud storage synchronization clients based on project-specific metadata
-    and provides a consistent view of the file system structure for
-    computational workflows.
+    specific workflows can be triggered for each processing
+    stage (\emph{small rectangle}). A Virtual Filesystem Projection layer
+    (right) maps data items and directories to GWDG Cloud Share synchronization
+    clients based on project-specific metadata and provides a consistent view
+    of the file system structure.
     (C) Within a project database additional metadata is stored. This can be
     metadata which was extracted by a computational workflow or manually
     entered data. The responsibility of the storage backend is to consistently
@@ -745,13 +748,13 @@ reduce the development time and effort.
 \end{figure}
 
 \subsection{Graphical User Interface}
-The architecture underlying NeuronDepot consists of individual layers (Fig. 6).
-Users can access NeuronDepot via a web application or through cloud storage
-synchronization clients. NeuronDepot distinguishes two kinds of users:
-registered project members which can manage the entire project data, and
-administrators with global permissions including user management. NeuronDepot
-uses OpenIDs for authentification. A third kind of user “anonymous” will be
-realized as soon as project data is published and publicly available.
+The architecture underlying NeuronDepot consists of individual layers and
+components (Fig.~\ref{fig:architecture}). Users can access NeuronDepot via a
+web application or through cloud storage synchronization clients. NeuronDepot
+distinguishes two kinds of users: registered project members which can manage
+the entire project data, and administrators with global permissions including
+user management. NeuronDepot uses OpenIDs (\url{http://openid.net/}) for
+authentification.
 
 The graphical user interface (GUI) consists of two parts: a web application
 (Fig.~\ref{fig:architecture}A, left) and local applications
@@ -760,26 +763,19 @@ assigning data, entering metadata, annotating data with metadata, and deleting
 data units and metadata. We used the micro web framework Python-Flask
 (\url{http://flask.pocoo.org/}) for rapid development.
 
-Upload and download processes are handled by cloud services incorporated by
-our filesystem projection layer (see below). Thus, scientists can use
-established tools like Windows Explorer, Mac Finder, Linux Nautilus, or other
-file managers to copy files for upload in dedicated folders
-(Fig.~\ref{fig:architecture}A, right).  Clients like Dropbox, Google Drive
-(\url{https://drive.google.com/}), or GWDG Cloud Share
-(\url{https://powerfolder.gwdg.de/}) are connected to the virtual filesystem
-projection layer. 
-
+Upload and download processes are handled by GWDG Cloud Share
+(\url{https://powerfolder.gwdg.de/}) incorporated by our virtual filesystem
+projection layer (see below). Thus, scientists can use established tools like
+Windows Explorer, Mac Finder, Linux Nautilus, or other file managers to copy
+files for upload in dedicated folders (Fig.~\ref{fig:architecture}A, right). 
 
 \subsection{Business Logic and Virtual Filesystem Projection}\label{sec:projection_layer}
 
 The business logic (Fig.~\ref{fig:architecture}B, left) encodes the NeuronDepot
 logic rules that determine how data can be created, read, updated, and deleted.
-Moreover, when new data items are added, deleted or modified, project-specific
-workflows can be triggered. The workflows are purely computational and are
-composed of multiple tasks. Because the workflows are executed asynchronously,
-a consistent view of the storage backend is needed. We therefore propose a
+We therefore propose a
 Virtual Filesystem Projection layer (Fig.~\ref{fig:architecture}B, right) which
-can map data items and directories to cloud storage synchronization clients
+can map data items to cloud storage synchronization clients
 based on project-specific metadata and provides a consistent view of the file
 system structure for computational workflows.
 
@@ -788,42 +784,15 @@ tasks extract metadata, index data items, manipulate images or calculate
 statistics. Workflows are created in Python with the help of libraries like
 Snakemake \citep{Koester2012}.
 
-Workflows can be triggered explicitly by user interactions over the web
+Workflows are triggered explicitly by user interactions over the web
 frontend or implicitly by the Virtual Filesystem Projection layer when new
 files are added. The execution state of the workflow is displayed in the web
-application. The synchronization of the files between the researchers is done
-asynchronously in the background with cloud synchronization clients, see (Fig.
-6). Hence the execution of computational workflows  has to be deterministic
-despite of asynchronous changes of files. This requirement is fulfilled by
-persistent data structures (see ~\ref{sec:persistence_layer}).
+application.
 
 The filesystem projection layer projects the data items based on metadata to
-directories and files. The hierarchy is stored in project metadata storage, the
-data items in the storage backend.
-
-A way to achieve this requirement is to serialize all changes at the server and
-introduce persistent data structures~\cite{Driscoll1989}. The persistent data
-structure is shared between the server and the computational workflow. One way
-to share the data structure would be to implement a custom library for file
-system access based on Filesystem in Userspace (FUSE, \url{http://fuse.sourceforge.net/}. Hence the workflow has a consistent view on the
-data items until it finishes. When the workflow is finished, the changes are
-committed. If there was another modification while the workflow was running,
-the transaction wouldn’t be able to commit. In this case the workflow could be
-rerun based on the latest snapshot, or a new branch would be created. A
-conceptually-similar approach is transactional memory. Transactional memory
-provides programming abstractions, which makes it easier to develop
-multithreaded applications (\url{http://clojure.org/refs}). In NeuronDepot we
-want to use a similar approach to provide a consistent view on the data items
-while a workflow is executed. The storage backend uses a SHA-1 hash as unique
-identifier for the data item in the project bucket. Calculating a SHA-1 hash of
-11.5GB file on a commodity laptop with a SSD took only about 41 seconds, hence
-it is feasible to take a SHA-1 hash as the unique identifier.
-
-This approach also has other advantages: The filesystem can be viewed to an
-arbitrary point in time in the history of the project and no snapshots are
-needed. This is also efficient in terms of storage space since it benefits from
-structural sharing and doesn't have to keep snapshots of data items. The
-integrity of a file can be checked by calculating the hash and comparing it.
+directories and files. The hierarchy of directory tree is generated by rules
+using project metadata and the data items which are controlled by the
+persistance layer.
 
 \subsection{Persistence Layer}\label{sec:persistence_layer}
 
@@ -891,15 +860,32 @@ indexing methods (spotlight, locate, Copernic, Google-Desktop search) (ii) File
 system explorers (for  searching and sorting) (iii) Backup (iv) Version-Control
 (v) Unix-world applications like \texttt{grep, find, and tree} (since
 “everything is a file”) (vi) Transmission protocols like \texttt{ftp, ssh, and
-http} (vii) File Synchronization Services.
+http} (vii) File Synchronization Services. These features are not available
+with services that provide dedicated clients, like those from G-Node or Carmen.
+\pr{@Thomas: please check}
+To use data locally with Carmen, one has to download the data manually, in our
+case, the data is automatically synchronized. With Carmen, one can work with
+the data remotely and with no local data \citep{austin_carmen:_2011}. Our service
+makes sure that the user has the data locally and thus, the user does not have
+to bother about keeping the data up to date.
+
+The process of providing a new user with data is complicated in both Carmen and
+G-Node. In G-Node the user must learn the client and incorporate it into his
+workflow \pr{@THOMAS: please contrast to carmen}. In our approach, providing
+new user with data is just about providing the user with permission to access
+the files on GWDG Cloud Share.
 
 Unlike with other existing solutions, using NeuronDepot does not require
 learning a new GUI or any other infrastructure specific usage features since at
 the user end, the data is provided as  a filesystem.
 
 An important feature of NeuronDepot is the isolation of the upload process from
-the GUI. Data is not uploaded by the user manually but is just assigned. The
-user does not need to wait for the file to be uploaded.
+the GUI. In the conventional upload process the user indicates the file to be
+uploaded and waits until the upload process is finished. This way of uploading
+can be very inconvenient when uploading large files (several hundrets of MBs).
+This problem is further compounded when the network connection is bad. Our
+approach solves this problem by isolating the upload process from the data
+assignment process.
 
 At the end user, a subset of the data in the database is presented in a tree
 structure. Here, what subset has to be presented and in what structure is
