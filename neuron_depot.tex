@@ -168,16 +168,16 @@ simulations \citep{shepherd_human_1998}. Projects with such multi-university
 collaborations benefit from well organized coordination of the participating
 specialists \citep{cummings_coordination_2007}.
 
-One challenging aspect of project workflows concerns immediate sharing of
-highly structured and voluminous data across labs. Tasks of the workflow can
-interdepend: a further step of the local work depends on another operation that
-is remotely carried out. In this case, scientific workflows allow to optimize
-and then more efficiently execute scientific processes
+One challenging aspect of project workflows might concern immediate sharing of
+highly structured and voluminous data across labs. Tasks of such a project
+workflow can interdepend: a further step of the local work depends on another
+operation that is remotely carried out. In this case, scientific workflows
+allow to optimize and then more efficiently execute scientific processes
 \citep{ludascher_scientific_2009}. For example, analysis results can motivate
-further experimental data collection, whereupon it is clearly of advantage that
+further collection of experimental data, whereupon it is clearly of advantage that
 they are made available once they are produced.
 
-Proposals to alleviate the data management overhead frequently require
+Proposals to alleviate the data management overhead frequently might require
 scientists to change and diminish their local processing workflow in order to
 be able to offer distributed access for collaborators to participate in the
 project. We propose here a novel approach which integrates seamlessly the
@@ -189,7 +189,7 @@ same time opens up the data for further processes in cloud-based web
 applications. In this way NeuronDepot exploits the existing substantial
 investment in development, acquisition, and training in local applications with
 their mature and rich interfaces and local access to data. We illustrate the
-approach with a NeuronDepot deployment tailored to the specific needs of the
+approach with a deployment of NeuronDepot tailored to the specific needs of the
 GinJang project (\url{http://projects.g-node.org/ginjang/}), a complex use case
 that combines data from electrophysiological recordings, imaging, morphological
 reconstructions, and simulations.
@@ -212,16 +212,18 @@ collaborative research.
 The CARMEN portal (\url{http://portal.carmen.org.uk}) allows neuroscientists to
 share data and programs from neurophysiological experiments. Data analysis
 functions are provided as services that can be applied to the data stored in
-the system \citep{austin_carmen:_2011}. Data, metadata, and analysis workflows are accessible via a web
-interface.
+the system \citep{austin_carmen:_2011}. Data, metadata, and analysis workflows
+are accessible via a web interface.
 
 The German Neuroinformatics Node (G-Node) provides a platform for management
 and sharing of neurophysiological data (\url{http://www.g-node.org/data}).
 Users can upload, organize, and annotate data, and make them accessible to
-other users or the public. Data annotation follows a flexible schema \citep{Grewe2011} so that any metadata necessary can be entered. An API provides
-fine-grained data access through common languages like Python or Matlab,
-enabling data management and collaborative data sharing directly from the
-scientists' local data workflow environments \citep{Sobolev2014a,Sobolev2014b}.
+other users or the public. Data annotation follows a flexible schema
+\citep{Grewe2011} so that any metadata necessary can be entered. An API
+provides fine-grained data access through common languages like Python or
+Matlab, enabling data management and collaborative data sharing directly from
+the scientists' local data workflow environments
+\citep{Sobolev_data_2014,Sobolev_integrated_2014}.
 
 Recently, the International Neuroinformatics Coordinating Facility (INCF)
 established the INCF Dataspace (\url{http://incf.org/dataspace}), a cloud-based
@@ -239,11 +241,11 @@ Its integrative approach inspired also the development of NeuronDepot.
 \section{Scope of the NeuronDepot approach}
 
 In contrast to some of the infrastructure solutions presented above,
-NeuronDepot does not focus on a particular field or type of data, but leaves the
+NeuronDepot does not focus on a particular field or type of data but leaves the
 specifics of each data type to the well-established working environments of the
 participating members. NeuronDepot supports the scientist by providing a
 service that integrates data flows with the corresponding management and data
-analysis on the project level.
+analysis.
 
 Beyond facilitating collaboration, the development of a database to properly
 store and backup all the data of the project makes it accessible to further
@@ -252,7 +254,7 @@ enables replication and verification of analyses.
 
 \subsection{The GinJang Project and its Workflow}
 \label{sec:ginjang}
-NeuronDepot was developed around the Japanese-German collaboration GinJang
+NeuronDepot was developed around the German-Japanese collaboration GinJang
 (\url{http://projects.g-node.org/ginjang/}).
 This project provides a perfect opportunity for use-case-driven development and
 field-testing of the NeuronDepot infrastructure because 1) it involves three
@@ -298,19 +300,19 @@ The GinJang project studies the processing of auditory signals in the honeybee.
 Honeybees communicate the direction and distance to food sources with
 hive-mates by waggle dance \citep{Frisch1967}. The hive-mates detect and
 process airborne vibration caused by the bee's wingbeat during the waggle
-dance, which consists of vibration pulses with a highly specific temporal pattern.
-Several critical interneurons for processing the airborne vibration
-have been identified \citep{Ai2007, Ai2009, Ai2010, Ai2012, Ai2013}, however
-the neural processing of these vibration signals has rarely been studied, and
-the types and roles of the neurons involved, their circuitry and its
-development are largely unknown.
+dance, which consists of vibration pulses with a highly specific temporal
+pattern.  Several critical interneurons for processing the airborne vibration
+have been identified \citep{Ai2007, Ai2009, Ai2010, Ai2012, Ai2013}. However,
+the neural processing of these vibration signals has rarely been studied: types
+and roles of neurons involved, their circuitry, and their development are
+largely unknown.
 
 Members of the GinJang project also developed a program (SIGEN, see
-\citet{Minemoto}) that is used to automatically extract and segment the morphology of
-the critical interneurons in the vibration processing. Goal of the GinJang
-project is to clarify the morphological characteristics of the
-vibration-processing neurons and their morphological development of the neuron
-depending on age and experience of the bees.
+\citet{Minemoto}) that is used to automatically extract and segment the
+morphology of interneurons that are involved in vibration processing. Goal
+of the GinJang project is to clarify the morphological characteristics of the
+vibration-processing neurons and their morphological development according to
+age and experience of the bees.
 
 The workflow of the GinJang project is illustrated in Figures
 \ref{fig:workflow} and \ref{fig:workflow_sequence}.
@@ -321,7 +323,7 @@ measurements (Fig.~\ref{fig:workflow}A), electrophysiological analyses
 performed. The image stacks are used at the University of Hyogo for
 neuronal segmentation (Fig.~\ref{fig:workflow}C). The resulting 3D neuronal
 segmentations are then normalized by registering them to the Honeybee standard
-brain (\url{http://www.neurobiologie.fu-berlin.de/BeeBrain/Project.html}), which
+brain (HSB; \url{http://www.neurobiologie.fu-berlin.de/BeeBrain/Project.html}), which
 is done at Fukuoka University. Finally, morphological analyses, simulations,
 and further analyses are done at Ludwig-Maximilians-Universität München (LMU)
 (Fig.~\ref{fig:workflow}E).
@@ -356,7 +358,7 @@ interneurons in response to several sensory input protocols \citep{Ai2009,
 Ai2012, Kai2013}. Then the neuron is filled with a dye and
 imaged at a different setup using confocal microscopy to generate anatomical
 image stacks \citep{Ai2010, Ai2013}. Thus, every experiment generates
-three kinds of data-metadata bundles:
+three kinds of data:
 
 \begin{itemize}
 \item Electrophysiological data (e.g., voltage and current traces)
@@ -383,15 +385,15 @@ At this stage two kinds of data are generated:
 
 The morphological segmentations of the neurons are transferred back to Fukuoka
 University for registration into the Honeybee Standard Brain using various
-transformations. We use the honeybee standard brain (HSB) to analyze the
-spatial relationships among morphologically and physiologically characterized
+transformations. We use the honeybee standard brain to analyze the spatial
+relationships among morphologically and physiologically characterized
 vibration-sensitive neurons. The neuronal profiles of stained interneurons,
-obtained from different preparations, are segmented as explained in the previous
-section. Subsequently, the neuropilar outlines are traced semi-automatically
-with the Amira 4.1 \citep{Evers2005} and ITK-SNAP (\url{http://www.itksnap.org/}).
-These neuropilar label
-fields are used to register the segmented neuron of each preparation into the
-HSB following the method described by \citet{Brandt2005}. Data generated at
+obtained from different preparations, are segmented as explained in the
+previous section. Subsequently, the neuropilar outlines are traced
+semi-automatically with Amira 4.1 \citep{Evers2005} and ITK-SNAP
+(\url{http://www.itksnap.org/}).  These neuropilar label fields are used to
+register the segmented neuron of each preparation into the honeybee standard
+brain following the method described by \citet{Brandt2005}. Data generated at
 this stage are:
 
 \begin{itemize}
@@ -402,7 +404,7 @@ this stage are:
 \subsubsection{Analysis}
 
 These segmentations (both registered and unregistered) are transferred to the
-LMU, Germany where 3D segmentations are used for morphometric analysis and
+LMU, Germany, where 3D segmentations are used for morphometric analysis and
 simulation studies. Multiple kinds of data are generated at this
 stage:
 
@@ -438,8 +440,8 @@ of requirements:
     \item Replacement of ``manual'' data transitions that are using memory
         devices like e-mail, USB-sticks, external hard drives, FTP-servers, or
         cloud storage services
-    \item Ease of metadata assignment for various kinds of data, like image
-        stacks, voltage trace, neuronal reconstructions
+    \item Ease of metadata assignment for various kinds of data like image
+        stacks, voltage trace, and neuronal reconstructions
     \item Interrelate various kinds of data
     \item Visibility of the current state of the project through a web browser
     \item Automatic update and synchronization across project workstations
@@ -459,8 +461,8 @@ of requirements:
     \begin{itemize}
     \item Easy adaptation to new data-specific requirements that emerge during
         the project
-    \item Support for automated data processing (cleaning, metadata extraction,
-    analysis and simulation scripts)
+    \item Support for automated data processing like metadata extraction,
+        analysis, and simulation
     \item Quick overview of contents and metadata
     \item Flexible search of data
     \end{itemize}
@@ -497,16 +499,15 @@ of requirements:
 
 \subsection{NeuronDepot as a Service}
 \label{sec:service}
-NeuronDepot is designed as a service. As opposed to
-a product, functionalities of a service are set up to meet a
-specific set of requirements at a point in time \citep{truex_growing_1999,
-bennett_service-based_2000, bullinger_service_2003}. Therefore, the specific
-form of NeuronDepot changes as the project progresses and its requirements
-continually evolve. Moreover, NeuronDepot is composed of other, already
-existing service-modules which are configured to meet the current requirements.
-While
-building up NeuronDepot from its sub-services, we make sure that NeuronDepot
-stays functional even when its sub-services develop with time. Also, these
+NeuronDepot is designed as a service. As opposed to a product, functionalities
+of a service are set up to meet a specific set of requirements at a point in
+time \citep{truex_growing_1999, bennett_service-based_2000,
+bullinger_service_2003}. Therefore, the specific form of NeuronDepot changes as
+the project progresses and its requirements continually evolve. Moreover,
+NeuronDepot brings together other already existing service-modules, which are
+reassembled and configured to meet the current requirements. While building up
+NeuronDepot from its sub-services, we make sure that NeuronDepot stays
+functional even when its sub-services develop with time.  Also, these
 developments can be utilized in evolving NeuronDepot. By offering new
 functionality in a way that is compatible with existing services, tools,
 training, and working environments, the costs of data sharing in a
@@ -516,14 +517,15 @@ assets is future-proofed.
 \subsection{Core Idea}
 
 When handling a large amount of data, it is common for scientists to arrange
-them in a directory tree. By doing this, they often encode metadata in
-directory names, for example, the date of recordings, experimental parameters,
-etc. NeuronDepot also uses this well established principle. The difference is
-that NeuronDepot automatizes this. It employs a set of rules to automatically
-create such a directory structure and arrange the data. It uses the associated
-metadata (available in the database) for naming the directories. The rules for
-forming this directory structure can be changed. Thus, the same data can be
-organized in different structures as required by the scientist.
+the corresponding files in a directory tree. By doing this, they often encode
+metadata in the name of directories, for example, the date of recordings or
+experimental parameters. NeuronDepot also uses this well established principle.
+The difference is that NeuronDepot automatizes this. It employs a set of rules
+to automatically create such a directory structure and arrange the data. It
+uses the associated metadata (available in the database) for naming the
+directories. The rules for forming this directory structure can be changed.
+Thus, the same data can be organized in different structures as required by the
+scientist.
 
 \subsection{Definitions}
 
@@ -534,12 +536,11 @@ NeuronDepot.
 
 A data unit (Fig.~\ref{fig:metadata_dataunits}, bottom left and bottom right)
 is a logical grouping of one file (trivial case) or multiple files which are
-generated by a single process. This process can be an experiment, an
-algorithmic data transformation, or a simulation. Examples of individual data
-units in the GinJang context include: an image stack consisting of several
-image files, the morphology of a neuron represented in a single SWC-file, or
-several plots and tables resulting from simulations of a neuron's
-electrophysiological characteristics.
+generated by a single process. Examples of individual data units in the GinJang
+context include: an image stack consisting of several image files, the
+morphology of a neuron represented in a single SWC-file, or several plots and
+tables resulting from simulations of a neuron's electrophysiological
+characteristics.
 
 \subsubsection{Context path and context trees}
 
@@ -584,8 +585,9 @@ corresponds to the hierarchical levels in the file system.
 \end{figure}
 
 \emph{Example}: If a member of the project wants to analyze one particular
-segmentation-data unit of neuron \texttt{NRN-1} of honeybee \texttt{HB123}, the
-following two paths would represent these attributes:
+segmentation of neuron \texttt{NRN-1} of honeybee \texttt{HB123}, the following
+two paths leading to the corresponding data unit would represent these
+attributes:
 
 \begin{lstlisting}[style=display]
 (1) HB123/NRN-1/segmentation/
@@ -620,13 +622,12 @@ so that other such solutions can be integrated to it.
 
 \subsubsection{Utilization of established cloud services}
 
-Cloud computing has rapidly emerged as a widely
-accepted computing paradigm built around core concepts such as on-demand
-computing resources, elastic scaling, elimination of up-front investment,
-reduction of operational expenses, and establishing a pay-per-use business
-model for information technology and computing services. The use of cloud computing
-services helps to reduce development time and effort.
-
+Cloud services have rapidly emerged as a widely accepted paradigm built around
+core concepts such as on-demand computing resources, elastic scaling,
+elimination of up-front investment, reduction of operational expenses, and
+establishing a pay-per-use business model for information technology and
+computing services. The use of cloud services helps to reduce development time
+and effort.
 
 %%%%%%%%%%%%%%%%%%%%%%%
 % Using NeuronDepot
@@ -638,15 +639,15 @@ services helps to reduce development time and effort.
 stations}
 
 NeuronDepot applies systematically the principle of using folder names and file
-names as metadata for the data contained in the filesystem. For flexibility,
-the collection of data units is stored in a central server in a flat structure
-where each data unit has a unique identifier, and the metadata are kept separate
-and referenced to those identifiers. When users define a subset of data they
-are interested in, along with a hierarchical arrangement that suits their
-needs, NeuronDepot creates a user- and task-specific context tree as a
-hierarchy of symbolic links with the data units at the leaves. By exposing
-these hierarchies to a synchronization daemon, the projection is made available
-to every workstation that subscribes to it.
+names as carrier for metadata describing the data contained in the filesystem.
+For flexibility, the collection of data units is stored in a central server in
+a flat structure where each data unit has a unique identifier, and the metadata
+are kept separate and referenced to those identifiers. When users define a
+subset of data they are interested in, along with a hierarchical arrangement
+that suits their needs, NeuronDepot creates a user- and task-specific context
+tree as a hierarchy of symbolic links with the data units at the leaves. By
+exposing these hierarchies to a synchronization daemon, the projection is made
+available to every workstation that subscribes to it.
 
 \subsection{Data Assignment}
 
@@ -709,7 +710,7 @@ environment.
     is correctly related to each other and that all data stay consistent.
     Project members can plug scripts into this assignment process to automate
     and facilitate data processing. Moreover, the system provides diverse
-    reports to brief the scientists about the current state, or about recent
+    reports to brief the scientists about the current state or about recent
     changes. (3) NeuronDepot distributes data units back to project members.
     According to the underlying context tree, NeuronDepot synchronizes
     projected context tree folders by cloud storage services to the
@@ -926,8 +927,8 @@ the new data are automatically provided locally.
 
 CARMEN enables access to analysis services on its platform
 \citep{austin_carmen:_2011}. G-Node provides access to data in a common
-representation through an API \citep{Sobolev2014b} with client tools for
-integration with the scientist's analysis scripts \citep{Sobolev2014a}.
+representation through an API \citep{Sobolev_integrated_2014} with client tools for
+integration with the scientist's analysis scripts \citep{Sobolev_data_2014}.
 NeuronDepot complements these approaches by presenting the data in the usual
 file system way. This is particularly useful for collaborations between
 specific labs where all partners know how to access the data.
