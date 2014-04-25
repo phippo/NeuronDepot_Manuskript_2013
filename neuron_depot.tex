@@ -779,7 +779,7 @@ The architecture underlying NeuronDepot consists of individual layers and
 components (Fig.~\ref{fig:architecture}). Users can access NeuronDepot via a
 web application or through cloud storage synchronization clients. NeuronDepot
 distinguishes two kinds of users: registered project members which can manage
-the entire project data, and administrators with global permissions including
+the entire project data and administrators with global permissions including
 user management. NeuronDepot uses OpenIDs (\url{http://openid.net/}) for
 authentication.
 
@@ -834,7 +834,7 @@ in an PostgreSQL (\url{http://www.postgresql.org/}).
 \textbf{Storage Backend} \texttt{ } The responsibility of the storage backend
 is to consistently store data items and provide abstractions for the file
 system projection layer. NeuronDepot uses Camlistore
-(\url{https://camlistore.org/}) which stores files like a traditional
+(\url{https://camlistore.org/}), which stores files like a traditional
 filesystem. Moreover, it's specialized in storing higher-level objects.
 
 \section{GinJang using NeuronDepot}
