@@ -268,11 +268,12 @@ simulation results.
 \centering
 \includegraphics[width=\textwidth]{Figures/workflow}
 \caption[Processing stages and data transitions]{
-    \emph{Processing stages and data transitions of a typical workflow like the GinJang honeybee project}
+    \emph{Processing stages and data transitions of a typical workflow like the
+    GinJang honeybee project}
 
     \textbf{I. Processing stages} (A) Single cell recording at a
     electrophysiological setup. Here, the electrical cell activity is measured
-    at the dendrite, as well as a dye is injected into the cell. (B) Using the
+    at the dendrite as well as a dye is injected into the cell. (B) Using the
     brain from experiments, image stacks are created applying confocal
     microscope technology. (C) The application SIGEN computes from confocal
     image stacks segmentations representing the underlying neuron. (D)
@@ -280,18 +281,18 @@ simulation results.
     This stage represents an entire electrophysiological infrastructure using
     local computers at the experimental lab but also remote G-Node-services.
     For simplicity, this illustration exemplary shows the result of a spike
-    detection algorithm identifies spikes of three neuronal units. (E) Further
-    process stages follow building upon already processed data.
+    detection algorithm that identifies spikes of three neuronal units. (E)
+    Further process stages follow that build upon already processed data.
 
     \textbf{II. Traditional data transition} (A $\rightarrow$ B) The honeybee
     brain is physically moved from electrophysiological setup to the confocal
     microscope setup. (B $\rightarrow$ C; C $\rightarrow$ E) data units (single
     file, or set of files that represents a logical unit like all files of an
-    image stack) are transferred by common tools, like USB-sticks, external
-    hard drives, Dropbox, or simply as emails attachment. The same tools are
+    image stack) are transferred by common tools like USB-sticks, external
+    hard drives, Dropbox, or simply as email attachments. The same tools are
     applied for (A $\rightarrow$ D; D $\rightarrow$ E) but moreover dedicated
     web techniques for the domain of electrophysiological provided by G-Node
-    are applied.
+    can be applied.
 }
 \label{fig:workflow}
 \end{figure}
@@ -477,17 +478,18 @@ of requirements:
     to the metadata of the project}
 
     (Left) A data unit is connected to metadata by its unique hash value id.
-    Metadata are illustrated here as a graph where each points represents an
+    Metadata are illustrated here as a graph where each point represents an
     attribute like \texttt{AGE=15}, \texttt{DATE=130525}, or
-    \texttt{HONEYBEE=HB123}. The data unit could express an image stack, or a
-    compartmental reconstruction of a specific neuron. (Middle) Data processing by
-    a script or an applications that operates on specific input data units and that
-    generates a new output data unit. For example, SIGEN generates from input data
-    units expressing image stacks neural segmentations as an output data unit
-    containing an SWC-file. (Right) Processing a data unit with a specific script
-    or application leads to an output data unit associated with new metadata that
-    is integrated into the existing metadata graph. According to our SIGEN-example,
-    parameters of the segmentation algorithm are stored within the metadata graph.
+    \texttt{HONEYBEE=HB123}. The data unit could express an image stack or a
+    compartmental reconstruction of a specific neuron. (Middle) Data processing
+    by a script or an applications that operates on specific input data units
+    and that generates a new output data unit. For example, SIGEN generates
+    from input data units expressing image stacks neural segmentations as an
+    output data unit containing an SWC-file. (Right) Processing a data unit
+    with a specific script or application leads to an output data unit
+    associated with new metadata that is integrated into the existing metadata
+    graph. According to our SIGEN-example, parameters of the segmentation
+    algorithm are stored within the metadata graph.
 }
 \label{fig:metadata_dataunits}
 \end{figure}
@@ -578,7 +580,8 @@ corresponds to the hierarchical levels in the file system.
     Metadata attributes \texttt{HONEYBEE\_ID} and \texttt{REGION} serve for
     grouping.
 
-    \emph{Example of context path ($\beta$) pointing to the same data unit:}
+    \emph{Example of context path ($\beta$) pointing to a data unit containing
+    an image stack:}
     \texttt{/HB130427/left-DL/*.tiff}
 }
 \label{fig:context_tree}
@@ -756,20 +759,19 @@ folders by cloud storage services to the workstations of the scientists.
     the filesystem projection layer (see below). Here, scientists can use
     established tools like Windows Explorer, Mac Finder, Linux Nautilus, or
     other file managers to copy files for upload in dedicated folders
-    (\emph{right}) which are connected to the cloud services.
-    (B) The business logic (\emph{left}) encodes the NeuronDepot logic rules
-    that determine how data can be created, red, updated, and deleted.
-    Moreover, when new data items are added, deleted, or modified, project-
-    specific workflows can be triggered for each processing
-    stage (\emph{small rectangle}). A Virtual Filesystem Projection layer
-    (right) maps data items and directories to GWDG Cloud Share synchronization
-    clients based on project-specific metadata and provides a consistent view
-    of the file system structure.
-    (C) Within a project database additional metadata are stored. This can be
-    metadata which was extracted by a computational workflow or manually
-    entered data. The responsibility of the storage backend is to consistently
-    store data items and provide abstractions for the file system projection
-    layer.
+    (\emph{right}) which are connected to the cloud services.  (B) The business
+    logic (\emph{left}) encodes the NeuronDepot logic rules that determine how
+    data can be created, red, updated, and deleted.  Moreover, when new data
+    items are added, deleted, or modified, project-specific workflows can be
+    triggered for each processing stage (\emph{illustrated by five small
+    rectangles}). A Virtual Filesystem Projection layer (right) maps data items
+    and directories to GWDG Cloud Share synchronization clients based on
+    project-specific metadata and provides a consistent view of the file system
+    structure.  (C) Within a project database additional metadata are stored.
+    This can be metadata which was extracted by a computational workflow or
+    manually entered data. The responsibility of the storage backend is to
+    consistently store data items and provide abstractions for the file system
+    projection layer.
 }
 \label{fig:architecture}
 \end{figure}
@@ -858,7 +860,7 @@ collaborator who is analyzing reconstructions. Thus, data sharing is achieved
 with minimum manual intervention.
 
 The data assigned to NeuronDepot are analyzed by two collaborators (at
-University of Hyogo, Japan and at LMU, Germany), each requiring them in a
+University of Hyogo, Japan, and at LMU, Germany), each requiring them in a
 different hierarchical structure for their analyses. NeuronDepot automatically
 provides the data in the structure the collaborators specify and thus
 alleviates the need for manual organization.
@@ -872,7 +874,7 @@ plain and focused modules, which are project-specific. In the GinJang project,
 segmentation is a processing stage that is implemented as a dedicated plain
 module storing, analyzing, and reporting segmentation data. Moreover, such a
 module provides all the required features for the data and metadata produced by
-this processing stage, like connecting it to other existing data in
+this processing stage like connecting it to other existing data in
 NeuronDepot, handling upload of this data and specifying the information
 necessary while presenting it to the user.
 
@@ -884,24 +886,24 @@ remains the same.
 \subsection{Distinguishing Features of NeuronDepot}
 
 NeuronDepot provides data via file system. This opens up a plethora of tools
-that are available at the local work bench, like (i) Desktop-Search using
-diverse indexing methods (spotlight, locate, Copernic, Google-Desktop search)
-(ii) File system explorers (for searching and sorting) (iii) Backup (iv)
-Version-Control (v) Unix-world applications like \texttt{grep, find, and tree}
-(since ``everything is a file'') (vi) Transmission protocols like \texttt{ftp,
-ssh, and http} (vii) File Synchronization Services.
+that are available at the local work bench like (i) desktop search using
+diverse indexing methods (spotlight, locate, Copernic, Google Desktop),
+(ii) file system explorers (for searching and sorting), (iii) Backup, (iv)
+Version-Control, (v) Unix-world applications like \texttt{grep, find, and tree}
+(since ``everything is a file''), (vi) transmission protocols like \texttt{ftp,
+ssh, and http}, and (vii) file synchronization services.
 
 An important feature of NeuronDepot is the isolation of the upload process from
 the GUI. In the conventional upload process the user indicates the file to be
 uploaded and waits until the upload process is finished. This way of uploading
 can be very inconvenient when uploading large files (several hundreds of MBs).
-This problem is further compounded when the network connection is bad. Our
-approach solves this problem by isolating the upload process from the data
+This problem is further compounded when the network connection is not stable.
+Our approach solves this problem by isolating the upload process from the data
 assignment process. The upload process of NeuronDepot consists of two steps.
 Data is copied into the GWDG Cloud Share and then assigned from there to the
 database using the GUI. This upload procedure facilitates assisted assignment
-of data since the data are available beforehand. Certain analysis scripts can be
-started on the data in the virtual file system and its results can be later
+of data since the data are available beforehand. Certain analysis scripts can
+be started on the data in the virtual file system and its results can be later
 used during the assignment of the data via the web-GUI.
 
 At the end user, a subset of the data in the database is presented in a tree
@@ -912,18 +914,18 @@ the data.
 
 In NeuronDepot, a specific subset of data is encapsulated into an entity via
 the concept of context trees. Such an encapsulation facilitates management
-operations such as referencing, tagging, and sharing, in which treatment of the
-subset of the data as an entity is essential. This is very much like a book
-encapsulating a set of concepts/facts and making them a single entity.
+operations in which treatment of the subset of the data as an entity is
+essential such as referencing, tagging, and sharing. This is very much like a
+book encapsulating a set of concepts/facts and making them a single entity.
 
 \subsection{Comparison with other systems}
 
 Other file-based solutions for collaborative data sharing provide access
-through a web browser, like the web platforms of CARMEN
+through a web browser like the web platforms of CARMEN
 (\url{http://portal.carmen.org.uk}) and G-Node
 (\url{http://www.g-node.org/data}). There, manual download is required to
-access new data when a dataset has been updated, whereas in NeuronDepot
-the new data are automatically provided locally.
+access new data when a dataset has been updated, whereas in NeuronDepot the new
+data are automatically provided locally.
 
 CARMEN enables access to analysis services on its platform
 \citep{austin_carmen:_2011}. G-Node provides access to data in a common
@@ -934,11 +936,11 @@ file system way. This is particularly useful for collaborations between
 specific labs where all partners know how to access the data.
 
 Unlike with other existing solutions, using NeuronDepot does not require
-learning a new GUI or any other infrastructure specific usage features since at
-the user end, the data are provided as directory trees. Having this feature,
-project members could keep their established working environments. In other
-words: NeuronDepot adapts for existing workflows whereas other systems require
-the scientist to adapt its workflow to the new system.
+learning a new GUI or any other infrastructure specific usage features since
+NeuronDepot provides the data as directory trees to the user. Having this
+feature, project members could keep their established working environments. In
+other words: NeuronDepot adapts for existing workflows whereas other systems
+require the scientist to adapt its workflow to the new system.
 
 \subsection{Further Directions, Limitations, and Open Questions}
 
@@ -963,7 +965,7 @@ that are required from NeuronDepot.
 
 \section{Conclusion}
 With this software architecture, we contribute an approach to scientific data
-workflow and a tool to the ecosystem of neuroscientific software. NeuronDepot's
+workflow and a tool to neuroscientifics infrastructure. NeuronDepot's
 principal merit is that it integrates smoothly with established tools and
 resolves the transition from local to cloud-based processing. In doing so,
 it enables researchers to leverage the advantages of cloud services while not
